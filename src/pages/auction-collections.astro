@@ -1,0 +1,332 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<style is:global>
+  .ac-hero-section { padding: 80px 24px 60px; position: relative; overflow: hidden; }
+  .ac-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1280px; margin: 0 auto; }
+  .ac-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .ac-hero-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.13; pointer-events: none; z-index: 0; }
+  .ac-hero-content { position: relative; z-index: 1; }
+  .ac-pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .ac-steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .ac-benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .ac-auction-houses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .ac-cta-section { padding: 80px 24px; position: relative; overflow: hidden; }
+  @media (max-width: 768px) {
+    .ac-hero-section { padding: 48px 20px 40px !important; }
+    .ac-hero-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+    .ac-stats-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+    .ac-pain-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .ac-steps-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .ac-benefits-grid { grid-template-columns: 1fr !important; }
+    .ac-auction-houses-grid { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+    .ac-cta-section { padding: 60px 20px !important; }
+  }
+</style>
+
+<Layout
+  title="Auction Collections | Built for Dealers & Trade | Tow It"
+  description="Tow It is the vehicle collection service built for trade. We collect from BCA, Manheim and all major UK auction houses — fast, reliable, no late collection charges."
+>
+
+  <!-- HERO -->
+  <section class="ac-hero-section" style="background:linear-gradient(135deg,#080C14 0%,#0E1421 60%,#0A1428 100%);">
+    <img src="/images/auction-compound.jpg" alt="" class="ac-hero-img" />
+    <div class="ac-hero-grid">
+      <div class="ac-hero-content">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,43,0.12);border:1px solid rgba(255,107,43,0.25);border-radius:9999px;padding:6px 14px;margin-bottom:20px;">
+          <span style="color:#FF6B2B;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Built for Dealers &amp; Trade</span>
+        </div>
+        <h1 style="font-size:clamp(2rem,4vw,3.1rem);font-weight:900;color:#ffffff;line-height:1.1;margin-bottom:20px;">Auction collections.<br/><span style="color:#FF6B2B;">Done before the deadline.</span></h1>
+        <p style="color:#8B96A8;font-size:1.1rem;line-height:1.7;margin-bottom:16px;">If you're buying through BCA, Manheim, or any of the major UK auction houses, you already know the pressure. Clock starts the moment the hammer falls. Miss the collection window and the charges stack up fast.</p>
+        <p style="color:#8B96A8;font-size:1rem;line-height:1.7;margin-bottom:32px;">Tow It is the transport infrastructure built specifically for high-volume trade buyers. Book via WhatsApp in minutes, get a confirmed driver assigned, and get your stock moving — every time, on time.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;">
+          <a href="https://wa.me/447700000000?text=Hi%20Tow%20It%2C%20I%20need%20auction%20collection%20transport%20from%20BCA%2FManheim" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#FF6B2B;color:#ffffff;font-weight:700;padding:14px 28px;border-radius:9999px;text-decoration:none;font-size:0.95rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.534 5.854L.057 23.429l5.735-1.505A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.89 0-3.66-.502-5.187-1.38l-.371-.22-3.405.894.91-3.319-.242-.386A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+            Book a Collection Now
+          </a>
+          <a href="#how-it-works" style="display:inline-flex;align-items:center;gap:8px;border:1px solid #1A2540;color:#ffffff;font-weight:600;padding:14px 28px;border-radius:9999px;text-decoration:none;font-size:0.95rem;">
+            See How It Works
+          </a>
+        </div>
+      </div>
+      <!-- Stats -->
+      <div class="ac-stats-grid ac-hero-content">
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:24px;text-align:center;">
+          <div style="font-size:2.5rem;font-weight:900;color:#FF6B2B;margin-bottom:6px;">Same<br/>Day</div>
+          <div style="color:#8B96A8;font-size:0.85rem;">Collection available</div>
+        </div>
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:24px;text-align:center;">
+          <div style="font-size:2.5rem;font-weight:900;color:#00E88F;margin-bottom:6px;">&lt;60<br/>min</div>
+          <div style="color:#8B96A8;font-size:0.85rem;">Average booking time</div>
+        </div>
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:24px;text-align:center;">
+          <div style="font-size:2.5rem;font-weight:900;color:#00C2FF;margin-bottom:6px;">£0</div>
+          <div style="color:#8B96A8;font-size:0.85rem;">Late collection charges with us</div>
+        </div>
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:24px;text-align:center;">
+          <div style="font-size:2.5rem;font-weight:900;color:#00E88F;margin-bottom:6px;">UK<br/>Wide</div>
+          <div style="color:#8B96A8;font-size:0.85rem;">All major auction sites covered</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUCTION HOUSES WE COVER -->
+  <section style="padding:60px 24px;max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:36px;">
+      <h2 style="font-size:clamp(1.4rem,2.5vw,2rem);font-weight:800;color:#ffffff;margin-bottom:10px;">We collect from every major UK auction house</h2>
+      <p style="color:#8B96A8;max-width:520px;margin:0 auto;line-height:1.7;">Wherever you buy, we're already there. Our driver network covers all major auction sites across the country.</p>
+    </div>
+    <div class="ac-auction-houses-grid">
+      <div style="background:#141C2E;border:1px solid rgba(255,107,43,0.2);border-radius:14px;padding:24px;text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🏢</div>
+        <div style="color:#ffffff;font-weight:700;font-size:1.05rem;margin-bottom:4px;">BCA</div>
+        <div style="color:#8B96A8;font-size:0.8rem;">UK's largest remarketing group</div>
+      </div>
+      <div style="background:#141C2E;border:1px solid rgba(255,107,43,0.2);border-radius:14px;padding:24px;text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🏢</div>
+        <div style="color:#ffffff;font-weight:700;font-size:1.05rem;margin-bottom:4px;">Manheim</div>
+        <div style="color:#8B96A8;font-size:0.8rem;">UK's leading wholesale marketplace</div>
+      </div>
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:14px;padding:24px;text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🏢</div>
+        <div style="color:#ffffff;font-weight:700;font-size:1.05rem;margin-bottom:4px;">Aston Barclay</div>
+        <div style="color:#8B96A8;font-size:0.8rem;">Physical &amp; digital sales</div>
+      </div>
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:14px;padding:24px;text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🏢</div>
+        <div style="color:#ffffff;font-weight:700;font-size:1.05rem;margin-bottom:4px;">Shoreham Vehicle Auctions</div>
+        <div style="color:#8B96A8;font-size:0.8rem;">South East specialist</div>
+      </div>
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:14px;padding:24px;text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🏢</div>
+        <div style="color:#ffffff;font-weight:700;font-size:1.05rem;margin-bottom:4px;">Motorhog</div>
+        <div style="color:#8B96A8;font-size:0.8rem;">Trade salvage &amp; stock</div>
+      </div>
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:14px;padding:24px;text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:8px;">📍</div>
+        <div style="color:#ffffff;font-weight:700;font-size:1.05rem;margin-bottom:4px;">Any other site</div>
+        <div style="color:#8B96A8;font-size:0.8rem;">Just tell us the postcode</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINT SECTION -->
+  <section style="padding:80px 24px;background:#0A1020;">
+    <div class="ac-pain-grid" style="max-width:1280px;margin:0 auto;">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,43,0.1);border:1px solid rgba(255,107,43,0.2);border-radius:9999px;padding:6px 14px;margin-bottom:20px;">
+          <span style="color:#FF6B2B;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">The Trade Reality</span>
+        </div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#ffffff;line-height:1.2;margin-bottom:20px;">Late collection charges are the <span style="color:#FF6B2B;">silent profit killer</span> for auction buyers.</h2>
+        <p style="color:#8B96A8;font-size:1rem;line-height:1.7;margin-bottom:20px;">BCA, Manheim and others don't wait. Miss the collection window by even a day and the storage charges begin. For high-volume trade buyers running dozens of purchases a month, this adds up to a serious drag on margins.</p>
+        <p style="color:#8B96A8;font-size:1rem;line-height:1.7;margin-bottom:28px;">The traditional answer — phoning round drivers, waiting on quotes, chasing availability — is too slow for the pace of trade buying. By the time you've confirmed a driver, the deadline has often already moved.</p>
+        <div style="background:#141C2E;border:1px solid rgba(255,107,43,0.2);border-radius:12px;padding:24px;">
+          <div style="color:#FF6B2B;font-weight:700;margin-bottom:10px;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">The numbers, plainly</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #1A2540;">
+              <span style="color:#8B96A8;font-size:0.9rem;">Avg BCA storage charge (per day)</span>
+              <span style="color:#FF6B2B;font-weight:700;">£25–£45</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #1A2540;">
+              <span style="color:#8B96A8;font-size:0.9rem;">Typical delay with traditional booking</span>
+              <span style="color:#FF6B2B;font-weight:700;">1–3 days</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #1A2540;">
+              <span style="color:#8B96A8;font-size:0.9rem;">Cost per vehicle missed</span>
+              <span style="color:#FF6B2B;font-weight:700;">£50–£135</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+              <span style="color:#ffffff;font-size:0.9rem;font-weight:600;">Tow It average booking to confirmed driver</span>
+              <span style="color:#00E88F;font-weight:700;">&lt; 60 mins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img src="/images/auction-dealer-booking.jpg" alt="Trade dealer booking a vehicle collection at auction via WhatsApp" style="width:100%;border-radius:20px;display:block;box-shadow:0 24px 60px rgba(0,0,0,0.5);" />
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" style="padding:80px 24px;max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,232,143,0.08);border:1px solid rgba(0,232,143,0.15);border-radius:9999px;padding:6px 14px;margin-bottom:16px;">
+        <span style="color:#00E88F;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">How It Works</span>
+      </div>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#ffffff;margin-bottom:12px;">Three steps. Hammer to handover.</h2>
+      <p style="color:#8B96A8;max-width:520px;margin:0 auto;line-height:1.7;">Our booking process is built for speed. From winning a lot to confirmed collection, trade buyers are done in minutes — not hours.</p>
+    </div>
+    <div class="ac-steps-grid">
+      <!-- Step 1 -->
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:20px;padding:36px 28px;position:relative;">
+        <div style="width:44px;height:44px;background:rgba(255,107,43,0.12);border:2px solid rgba(255,107,43,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;color:#FF6B2B;margin-bottom:20px;">1</div>
+        <h3 style="color:#ffffff;font-weight:700;font-size:1.05rem;margin-bottom:10px;">Win the lot — WhatsApp us immediately</h3>
+        <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Send a quick message to our AI with the auction house, lot number, and your site address. That's it. No forms, no phone calls, no email threads. Just WhatsApp.</p>
+        <div style="margin-top:20px;background:#0E1421;border-radius:10px;padding:14px;font-family:monospace;font-size:0.8rem;">
+          <div style="color:#8B96A8;margin-bottom:6px;">Your message:</div>
+          <div style="color:#00E88F;">"BCA Leeds, lot 4821, collect to Sheffield S9 2LA, needed today"</div>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:20px;padding:36px 28px;position:relative;">
+        <div style="width:44px;height:44px;background:rgba(0,232,143,0.1);border:2px solid rgba(0,232,143,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;color:#00E88F;margin-bottom:20px;">2</div>
+        <h3 style="color:#ffffff;font-weight:700;font-size:1.05rem;margin-bottom:10px;">We confirm a driver — fast</h3>
+        <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Our AI matches your job to an available, vetted driver from our UK network — prioritising proximity to the auction site. You get a confirmation with the driver's name, ETA, and vehicle details within the hour.</p>
+        <div style="margin-top:20px;background:#0E1421;border-radius:10px;padding:14px;font-family:monospace;font-size:0.8rem;">
+          <div style="color:#8B96A8;margin-bottom:6px;">Tow It reply:</div>
+          <div style="color:#00C2FF;">"Confirmed ✓ — Steve M, arriving BCA Leeds ~2:30pm. Reg: YD71 XXT. ETA to your site: 4:15pm"</div>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:20px;padding:36px 28px;position:relative;">
+        <div style="width:44px;height:44px;background:rgba(0,194,255,0.1);border:2px solid rgba(0,194,255,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;color:#00C2FF;margin-bottom:20px;">3</div>
+        <h3 style="color:#ffffff;font-weight:700;font-size:1.05rem;margin-bottom:10px;">Stock arrives. Invoice at end of month.</h3>
+        <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Your vehicle is collected, transported safely, and delivered to your site. No chasing, no drama. High-volume trade accounts receive a single consolidated invoice at month end — clean and simple for your accounts team.</p>
+        <div style="margin-top:20px;background:rgba(0,232,143,0.06);border:1px solid rgba(0,232,143,0.15);border-radius:10px;padding:14px;">
+          <div style="color:#00E88F;font-size:0.85rem;font-weight:600;">✓ No late collection charges &nbsp;&nbsp;✓ No chasing drivers &nbsp;&nbsp;✓ One monthly invoice</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPORTER IMAGE BREAK -->
+  <section style="padding:0 24px;max-width:1280px;margin:0 auto 80px;">
+    <div style="border-radius:20px;overflow:hidden;position:relative;">
+      <img src="/images/auction-transporter-speed.jpg" alt="Car transporter on UK motorway collecting auction vehicles at speed" style="width:100%;max-height:360px;object-fit:cover;display:block;" />
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(8,12,20,0.85) 0%,rgba(8,12,20,0.1) 60%);">
+        <div style="padding:40px 48px;height:100%;display:flex;flex-direction:column;justify-content:center;">
+          <div style="color:#FF6B2B;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Built for Volume</div>
+          <div style="font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:#ffffff;line-height:1.2;max-width:400px;">Your entire auction run. Handled in a single conversation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS FOR TRADE BUYERS -->
+  <section style="padding:0 24px 80px;max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#ffffff;margin-bottom:12px;">Everything a trade buyer actually needs</h2>
+      <p style="color:#8B96A8;max-width:520px;margin:0 auto;line-height:1.7;">Built from the ground up for dealers who buy regularly at auction — not a general consumer service with an auction option bolted on.</p>
+    </div>
+    <div class="ac-benefits-grid">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:30px;">
+        <div style="width:44px;height:44px;background:rgba(255,107,43,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" fill="none" stroke="#FF6B2B" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 style="color:#ffffff;font-weight:700;margin-bottom:8px;">Same-day collection</h3>
+        <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Win at auction in the morning, stock on your forecourt by evening. Our network prioritises speed so you're never holding stock at the auction house longer than necessary.</p>
+      </div>
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:30px;">
+        <div style="width:44px;height:44px;background:rgba(0,232,143,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" fill="none" stroke="#00E88F" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 style="color:#ffffff;font-weight:700;margin-bottom:8px;">Vetted, reliable drivers</h3>
+        <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Every driver on our network is fully insured, trade-experienced, and familiar with auction house procedures. No rogue operators, no no-shows. Your stock is always in safe hands.</p>
+      </div>
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:30px;">
+        <div style="width:44px;height:44px;background:rgba(0,194,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" fill="none" stroke="#00C2FF" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        </div>
+        <h3 style="color:#ffffff;font-weight:700;margin-bottom:8px;">Multi-vehicle, one booking</h3>
+        <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Bought five vehicles across a BCA day? Send one message. We coordinate multi-car collections and transporter bookings so you're not making five separate arrangements for one auction run.</p>
+      </div>
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:30px;">
+        <div style="width:44px;height:44px;background:rgba(255,107,43,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" fill="none" stroke="#FF6B2B" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 style="color:#ffffff;font-weight:700;margin-bottom:8px;">Monthly trade invoicing</h3>
+        <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Approved trade accounts receive a single monthly invoice covering all collections — no card payments per job, no fiddly receipts. Clean reporting your accounts team will actually appreciate.</p>
+      </div>
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:30px;">
+        <div style="width:44px;height:44px;background:rgba(0,232,143,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" fill="none" stroke="#00E88F" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        </div>
+        <h3 style="color:#ffffff;font-weight:700;margin-bottom:8px;">Real-time status updates</h3>
+        <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">From driver assigned to vehicle collected to ETA on delivery — you get live WhatsApp updates at every milestone. No more calling to ask "where's my car?" Your team always knows exactly where stock is.</p>
+      </div>
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:30px;">
+        <div style="width:44px;height:44px;background:rgba(0,194,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+          <svg width="22" height="22" fill="none" stroke="#00C2FF" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3 style="color:#ffffff;font-weight:700;margin-bottom:8px;">National coverage</h3>
+        <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Whether you're collecting from BCA Glasgow and delivering to Bristol, or Manheim Shepshed to South London — our driver network covers the whole of mainland UK. No collection is too far.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section style="padding:80px 24px;background:#0A1020;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#ffffff;margin-bottom:12px;">Who uses Tow It for auction collections?</h2>
+        <p style="color:#8B96A8;max-width:520px;margin:0 auto;line-height:1.7;">We work with trade buyers of all sizes — from solo independent dealers to multi-site franchise groups.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+        <div style="background:#141C2E;border:1px solid rgba(255,107,43,0.15);border-radius:16px;padding:28px;">
+          <div style="font-size:2rem;margin-bottom:14px;">🏬</div>
+          <h3 style="color:#FF6B2B;font-weight:700;margin-bottom:8px;font-size:1rem;">Independent Used Car Dealers</h3>
+          <p style="color:#8B96A8;font-size:0.875rem;line-height:1.7;">Buying 10–40 vehicles a month across BCA and Manheim. Tow It replaces the scramble to find a driver after every win — it's handled before you've even left the auction hall.</p>
+        </div>
+        <div style="background:#141C2E;border:1px solid rgba(0,232,143,0.15);border-radius:16px;padding:28px;">
+          <div style="font-size:2rem;margin-bottom:14px;">🏢</div>
+          <h3 style="color:#00E88F;font-weight:700;margin-bottom:8px;font-size:1rem;">Multi-Site Dealer Groups</h3>
+          <p style="color:#8B96A8;font-size:0.875rem;line-height:1.7;">Moving stock between branches and from auction to forecourt. One account, one WhatsApp number, one invoice — regardless of which site the vehicle goes to.</p>
+        </div>
+        <div style="background:#141C2E;border:1px solid rgba(0,194,255,0.15);border-radius:16px;padding:28px;">
+          <div style="font-size:2rem;margin-bottom:14px;">🔄</div>
+          <h3 style="color:#00C2FF;font-weight:700;margin-bottom:8px;font-size:1rem;">Trade Wholesale Buyers</h3>
+          <p style="color:#8B96A8;font-size:0.875rem;line-height:1.7;">Buying to sell on to other dealers. High volume, tight margins. Our competitive trade pricing keeps your costs predictable and your throughput high.</p>
+        </div>
+        <div style="background:#141C2E;border:1px solid rgba(255,107,43,0.15);border-radius:16px;padding:28px;">
+          <div style="font-size:2rem;margin-bottom:14px;">🔧</div>
+          <h3 style="color:#FF6B2B;font-weight:700;margin-bottom:8px;font-size:1rem;">Preparation Centres</h3>
+          <p style="color:#8B96A8;font-size:0.875rem;line-height:1.7;">Collecting from auction on behalf of dealer clients, delivering to your prep centre and back out. We work seamlessly as part of your existing supply chain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADE ACCOUNT CTA -->
+  <section class="ac-cta-section" style="background:linear-gradient(135deg,#0E1421 0%,#141C2E 100%);">
+    <div style="max-width:720px;margin:0 auto;text-align:center;position:relative;z-index:1;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,43,0.12);border:1px solid rgba(255,107,43,0.25);border-radius:9999px;padding:6px 14px;margin-bottom:20px;">
+        <span style="color:#FF6B2B;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Trade Accounts Welcome</span>
+      </div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.75rem);font-weight:900;color:#ffffff;line-height:1.15;margin-bottom:20px;">Stop losing money to<br/>late collection charges.</h2>
+      <p style="color:#8B96A8;font-size:1.05rem;line-height:1.7;margin-bottom:36px;">Message us on WhatsApp right now and we'll set up your trade account. Start booking auction collections today — and eliminate the transport headache from your buying process for good.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:32px;">
+        <a href="https://wa.me/447700000000?text=Hi%20Tow%20It%2C%20I%27d%20like%20to%20set%20up%20a%20trade%20account%20for%20auction%20collections" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#FF6B2B;color:#ffffff;font-weight:700;padding:16px 32px;border-radius:9999px;text-decoration:none;font-size:1rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.534 5.854L.057 23.429l5.735-1.505A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.89 0-3.66-.502-5.187-1.38l-.371-.22-3.405.894.91-3.319-.242-.386A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          Set Up Trade Account
+        </a>
+        <a href="/for-dealers" style="display:inline-flex;align-items:center;gap:8px;border:1px solid #1A2540;color:#ffffff;font-weight:600;padding:16px 32px;border-radius:9999px;text-decoration:none;font-size:1rem;">
+          Full Dealer Services →
+        </a>
+      </div>
+      <!-- Trust signals -->
+      <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;">
+        <div style="display:flex;align-items:center;gap:6px;color:#8B96A8;font-size:0.8rem;">
+          <svg width="14" height="14" fill="#00E88F" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          No setup fee
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;color:#8B96A8;font-size:0.8rem;">
+          <svg width="14" height="14" fill="#00E88F" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Approved in under 24 hours
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;color:#8B96A8;font-size:0.8rem;">
+          <svg width="14" height="14" fill="#00E88F" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Monthly invoicing from day one
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;color:#8B96A8;font-size:0.8rem;">
+          <svg width="14" height="14" fill="#00E88F" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          All UK auction houses covered
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
