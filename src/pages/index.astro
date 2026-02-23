@@ -1,12 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
+
+<style is:global>
+  .idx-hero { padding: 100px 24px 80px !important; }
+  .idx-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .idx-dealer-card { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  @media (max-width: 768px) {
+    .idx-hero { padding: 48px 20px 48px !important; }
+    .idx-2col { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .idx-dealer-card { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .idx-hero h1 { font-size: 2.2rem !important; }
+    .idx-hero p { font-size: 1rem !important; }
+  }
+</style>
+
 <Layout title="AI Vehicle Transport UK" description="Tow It is the UK's first AI-powered vehicle transport broker. Get instant quotes, vetted drivers and real-time tracking — all via WhatsApp. No apps, no forms, no faff.">
 
   <!-- HERO -->
-  <section style="background:linear-gradient(135deg,#080C14 0%,#0E1421 50%,#080C14 100%);padding:100px 24px 80px;text-align:center;position:relative;overflow:hidden;">
+  <section class="idx-hero" style="background:linear-gradient(135deg,#080C14 0%,#0E1421 50%,#080C14 100%);text-align:center;position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(0,194,255,0.08) 0%,transparent 70%);pointer-events:none;"></div>
-    <img src="/hero-transport.jpg" alt="Vehicle transport on UK roads" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.18;pointer-events:none;z-index:0;" />
+    <img src="/hero-transport.jpg" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.25;pointer-events:none;z-index:0;" />
     <div style="max-width:900px;margin:0 auto;position:relative;">
       <div style="display:inline-flex;align-items:center;gap:8px;background:#141C2E;border:1px solid #1A2540;border-radius:9999px;padding:6px 16px;margin-bottom:24px;">
         <span style="width:8px;height:8px;background:#00E88F;border-radius:50%;display:inline-block;"></span>
@@ -135,7 +149,7 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- FOR DEALERS -->
   <section style="padding:80px 24px;max-width:1280px;margin:0 auto;">
-    <div style="background:linear-gradient(135deg,#141C2E,#0E1421);border:1px solid #1A2540;border-radius:24px;padding:56px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+    <div class="idx-dealer-card" style="background:linear-gradient(135deg,#141C2E,#0E1421);border:1px solid #1A2540;border-radius:24px;padding:56px 40px;">
       <div>
         <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,194,255,0.1);border:1px solid rgba(0,194,255,0.2);border-radius:9999px;padding:6px 14px;margin-bottom:20px;">
           <span style="color:#00C2FF;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">For Car Dealers</span>
@@ -185,7 +199,7 @@ import Layout from '../layouts/Layout.astro';
   <!-- FOR TRANSPORT COMPANIES -->
   <section style="padding:0 24px 80px;max-width:1280px;margin:0 auto;">
     <div style="background:linear-gradient(135deg,#141C2E,#0E1421);border:1px solid #1A2540;border-radius:24px;padding:56px 40px;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+      <div class="idx-2col" style="">
         <div style="order:2;">
           <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,232,143,0.1);border:1px solid rgba(0,232,143,0.2);border-radius:9999px;padding:6px 14px;margin-bottom:20px;">
             <span style="color:#00E88F;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">For Transport Companies</span>
