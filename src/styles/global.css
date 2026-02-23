@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #080C14;
+  --color-brand-surface: #0E1421;
+  --color-brand-card: #141C2E;
+  --color-brand-border: #1A2540;
+  --color-brand-accent: #00C2FF;
+  --color-brand-orange: #FF6B2B;
+  --color-brand-green: #00E88F;
+  --color-brand-muted: #8B96A8;
+  --color-brand-subtle: #4A5568;
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
