@@ -17,6 +17,10 @@ function getSmartFallbackResponse(messages) {
   if (msgCount === 1 && msg.match(/(^(hi|hello|hey|yo|sup|hiya|howdy))|(just seen|instagram|seen this|what (do you do|is this|is towit|are you)|tell me more|whats this|what's this)/)) {
     return "Hey there! 👋 Great to have you here. Towit.ai is building the UK's first AI-powered vehicle transport network — we connect car dealers and private individuals who need a vehicle moved with vetted, insured transport professionals right across the UK. Everything runs through WhatsApp, so there's no app to download — just a quick message and we handle the rest. Are you looking to get a vehicle moved, or are you a driver or transport company?";
   }
+  // Check driver pay/earnings BEFORE generic pricing — "how much will I get paid" as a driver is NOT the same as dealer pricing
+  if (msg.match(/driver|transporter|transport company/) || (msg.match(/earn|paid|pay|wage|salary|income|money/) && msg.match(/driver|transport|deliver|move vehicles|i (am|'m) a/))) {
+    return "Great news — we're building a national network of vetted drivers and transport companies right now. You'd get a steady stream of jobs matched to your location and vehicle type, competitive per-mile earnings, and the freedom to work on your own terms. No more chasing work! Driver pay rates are confirmed during onboarding. Want to get on the driver list? 🚛\n[SHOW_WAITLIST_BUTTON]";
+  }
   if (msg.match(/price|pricing|cost|how much|rates?|charge|£|per mile/)) {
     return "Our pricing is simple and fully transparent — Standard tier is £1.75/mile, Pro tier (ideal for dealers and frequent users) is £1.50/mile, and Enterprise clients get custom rates negotiated directly. No hidden fees, ever. Want to lock in your spot on the waitlist? 😊\n[SHOW_WAITLIST_BUTTON]";
   }
@@ -25,9 +29,6 @@ function getSmartFallbackResponse(messages) {
   }
   if (msg.match(/dealer|dealership|trade|fleet|auction|multiple vehicles/)) {
     return "We've built Towit.ai very much with dealers and fleet managers in mind. Pro tier at £1.50/mile gives you reliable, trackable transport across the UK — and high-volume accounts can arrange custom Enterprise pricing. You'd be one of the first dealers on the platform by joining the waitlist now. Want to secure your spot? 🏎️\n[SHOW_WAITLIST_BUTTON]";
-  }
-  if (msg.match(/driver|transporter|transport company|earn|work|jobs|sign up as a driver/)) {
-    return "Great news for you — we're building a national network of vetted drivers and transport companies right now. You'd get a steady stream of jobs matched to your location and vehicle type, transparent per-mile pay, and the freedom to work on your own terms. No more chasing work! We're onboarding drivers early — want to get on the list? 🚛\n[SHOW_WAITLIST_BUTTON]";
   }
   if (msg.match(/when|launch|available|live|release|ready|start/)) {
     return "We're in the final stages of pre-launch — coming soon! People who sign up to the waitlist now will be the first to get access, and may get priority pricing when we go live. Want to make sure you're first in line? 🎉\n[SHOW_WAITLIST_BUTTON]";
@@ -96,14 +97,21 @@ HOW IT WORKS — FOR DRIVERS & TRANSPORT COMPANIES:
 PRICING — BE ACCURATE AND CONFIDENT
 ================================================================
 
-Pricing is per mile, point-to-point (collection to delivery):
+CRITICAL DISTINCTION: The pricing tiers below are what CUSTOMERS AND DEALERS PAY to use the Towit.ai service. These are NOT driver earnings. Driver pay is separate — see the DRIVER EARNINGS section below.
 
+CUSTOMER/DEALER PRICING — what clients pay per mile:
 - STANDARD TIER: £1.75 per mile — for private individuals and occasional users
 - PRO TIER: £1.50 per mile — designed for car dealers, auction buyers, and frequent users who move multiple vehicles
 - ENTERPRISE TIER: Custom rate — negotiated directly for high-volume accounts such as large dealership groups, fleet operators, and leasing companies
 - MINIMUM RATE: £1.50 per mile (even on Pro tier — this is the floor)
 
 There are NO hidden fees. The per-mile rate covers the transport. Pricing is transparent and agreed before any job is confirmed.
+
+DRIVER EARNINGS — what drivers get paid:
+- Drivers earn a competitive per-mile rate for each completed job
+- Driver pay rates are confirmed individually during the onboarding process — they are NOT the same as the customer pricing tiers above
+- If a driver or transport company asks "how much will I get paid" or "how much do drivers earn", DO NOT quote the customer pricing tiers. Instead, explain that driver pay is competitive and per-mile, confirmed during onboarding, and invite them to join the driver waitlist to find out more
+- Never tell a driver they'll earn £1.75/mile or £1.50/mile — those are customer prices, not driver earnings
 
 ================================================================
 TARGET CUSTOMERS
