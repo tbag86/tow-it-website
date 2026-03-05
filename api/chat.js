@@ -2,7 +2,7 @@
 // Calls Google Gemini directly from Vercel (no intermediate server needed)
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyAgAVRnD_oOV9P3Tu81Fb7tzBWGB3MJnFQ';
-const GEMINI_MODEL = 'gemini-2.0-flash';
+const GEMINI_MODEL = 'gemini-2.5-flash';
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
 const SYSTEM_PROMPT = `You are Vini, the friendly and knowledgeable AI assistant for Towit.ai — the UK's first AI-powered vehicle transport network. You're a brilliant salesperson but you never come across as pushy. You're warm, helpful, and genuinely excited about what Towit.ai is building.
