@@ -64,3 +64,164 @@ img {
     max-width: 100%;
   }
 }
+
+/* ============================================================
+   ACCORDION — smooth open/close for <details> elements
+   ============================================================ */
+
+/* Wrapper to animate the content height */
+details.accordion {
+  background: #141C2E;
+  border: 1px solid #1A2540;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+details.accordion[open] {
+  box-shadow: 0 0 0 1px #00C2FF40;
+}
+
+details.accordion > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 24px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  gap: 16px;
+}
+
+details.accordion > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* The +/× toggle icon */
+details.accordion > summary .accordion-icon {
+  color: #00C2FF;
+  font-size: 1.4rem;
+  font-weight: 300;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+details.accordion[open] > summary .accordion-icon {
+  transform: rotate(45deg);
+}
+
+/* Animated body */
+details.accordion > .accordion-body {
+  padding: 0 24px 22px;
+  overflow: hidden;
+  /* CSS-only height animation using max-height trick */
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease;
+}
+
+details.accordion[open] > .accordion-body {
+  max-height: 800px;
+  opacity: 1;
+}
+
+details.accordion > .accordion-body p,
+details.accordion > .accordion-body ul {
+  color: #8B96A8;
+  line-height: 1.75;
+  margin: 0;
+}
+
+details.accordion > .accordion-body p + p {
+  margin-top: 12px;
+}
+
+details.accordion > .accordion-body ul {
+  padding-left: 20px;
+  line-height: 2;
+}
+
+/* ============================================================
+   HORIZONTAL SCROLL CAROUSEL
+   ============================================================ */
+
+.hscroll-outer {
+  position: relative;
+}
+
+.hscroll-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;          /* Firefox */
+  padding-bottom: 8px;            /* breathing room */
+  cursor: grab;
+}
+
+.hscroll-track:active {
+  cursor: grabbing;
+}
+
+.hscroll-track::-webkit-scrollbar {
+  display: none;                  /* Chrome/Safari */
+}
+
+.hscroll-track > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Arrow buttons */
+.hscroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #141C2E;
+  border: 1px solid #1A2540;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+  opacity: 0.85;
+}
+
+.hscroll-btn:hover {
+  background: #1A2540;
+  border-color: #00C2FF;
+  opacity: 1;
+}
+
+.hscroll-btn.prev {
+  left: -20px;
+}
+
+.hscroll-btn.next {
+  right: -20px;
+}
+
+/* On small screens, hide arrow buttons (touch swipe works fine) */
+@media (max-width: 768px) {
+  .hscroll-btn {
+    display: none;
+  }
+
+  .hscroll-outer {
+    /* give a bit more horizontal room on mobile */
+    margin-left: -4px;
+    margin-right: -4px;
+  }
+}

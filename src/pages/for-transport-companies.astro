@@ -255,8 +255,11 @@ import Layout from '../layouts/Layout.astro';
     <div style="margin-bottom:40px;border-radius:16px;overflow:hidden;">
       <img src="/images/driver-earnings.jpg" alt="Happy truck driver counting earnings" style="width:100%;max-height:260px;object-fit:cover;border-radius:16px;display:block;" />
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:32px;">
+    <div class="hscroll-outer" id="earnings-scroll">
+      <button class="hscroll-btn prev" onclick="document.getElementById('earnings-track').scrollBy({left:-320,behavior:'smooth'})" aria-label="Previous">&#8249;</button>
+      <button class="hscroll-btn next" onclick="document.getElementById('earnings-track').scrollBy({left:320,behavior:'smooth'})" aria-label="Next">&#8250;</button>
+      <div class="hscroll-track" id="earnings-track" style="padding-bottom:12px;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:32px;width:min(320px,85vw);">
         <h3 style="color:#00C2FF;font-weight:700;margin-bottom:20px;font-size:1rem;">Part-Time Single Driver</h3>
         <p style="color:#8B96A8;font-size:0.875rem;line-height:1.7;margin-bottom:20px;">Owner-operator with one car transporter, taking jobs around local area and occasional longer hauls. 3–4 jobs per week.</p>
         <div style="background:#0E1421;border-radius:8px;padding:16px;margin-bottom:16px;">
@@ -270,7 +273,7 @@ import Layout from '../layouts/Layout.astro';
           <li style="color:#00E88F;font-size:0.8rem;font-weight:600;">🔁 +£400–£800/mo from empty legs</li>
         </ul>
       </div>
-      <div style="background:#141C2E;border:2px solid #00E88F;border-radius:16px;padding:32px;">
+      <div style="background:#141C2E;border:2px solid #00E88F;border-radius:16px;padding:32px;width:min(320px,85vw);">
         <h3 style="color:#00E88F;font-weight:700;margin-bottom:20px;font-size:1rem;">Full-Time Solo Operator</h3>
         <p style="color:#8B96A8;font-size:0.875rem;line-height:1.7;margin-bottom:20px;">Dedicated transport company, running 5–6 days a week, taking a mix of local and national jobs, high Tow It rating.</p>
         <div style="background:#0E1421;border-radius:8px;padding:16px;margin-bottom:16px;">
@@ -284,7 +287,7 @@ import Layout from '../layouts/Layout.astro';
           <li style="color:#00E88F;font-size:0.8rem;font-weight:600;">🔁 +£1,000–£1,500/mo from empty legs</li>
         </ul>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:32px;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:32px;width:min(320px,85vw);">
         <h3 style="color:#FF6B2B;font-weight:700;margin-bottom:20px;font-size:1rem;">Multi-Vehicle Operation</h3>
         <p style="color:#8B96A8;font-size:0.875rem;line-height:1.7;margin-bottom:20px;">Transport company with 2–4 vehicles and drivers, running prestige and standard jobs, priority allocation tier.</p>
         <div style="background:#0E1421;border-radius:8px;padding:16px;margin-bottom:16px;">
@@ -298,7 +301,8 @@ import Layout from '../layouts/Layout.astro';
           <li style="color:#00E88F;font-size:0.8rem;font-weight:600;">🔁 +£3,000–£6,000/mo from empty legs</li>
         </ul>
       </div>
-    </div>
+      </div><!-- end hscroll-track -->
+    </div><!-- end hscroll-outer -->
     <p style="color:#4A5568;font-size:0.8rem;text-align:center;margin-top:20px;">Earnings figures are estimates based on current network averages and are not guaranteed. Actual earnings depend on availability, location, vehicle type, and performance rating.</p>
   </section>
 
@@ -306,33 +310,47 @@ import Layout from '../layouts/Layout.astro';
   <section style="padding:0 24px 80px;max-width:900px;margin:0 auto;">
     <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#ffffff;margin-bottom:40px;text-align:center;">Driver FAQ</h2>
     <div style="display:flex;flex-direction:column;gap:16px;">
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">Do I need to pay to join the network?</summary>
+      <details class="accordion">
+        <summary>Do I need to pay to join the network?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">No. Joining the Tow It network is completely free. There are no subscription fees, no sign-up costs, and no monthly charges. We take a platform margin on each job — the price we quote customers includes our margin already, so the amount you're offered is what you receive. No deductions, no surprises.</p>
+        </div>
       </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">What vehicles do I need to be able to transport?</summary>
+      <details class="accordion">
+        <summary>What vehicles do I need to be able to transport?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">You only receive jobs for vehicle types your equipment can handle. When you register, you specify your capabilities: open transporter, enclosed, flatbed recovery, motorcycle, etc. You'll only be matched to jobs that fit your setup.</p>
+        </div>
       </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">How are jobs allocated — do I compete with other drivers?</summary>
+      <details class="accordion">
+        <summary>How are jobs allocated — do I compete with other drivers?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">No bidding, no competition. Our AI selects the best-matched driver for each job and offers it to them first. If they decline, it goes to the next driver. Factors in the matching include proximity, equipment type, current workload, and your performance rating. Higher-rated drivers with more availability get first access to premium and higher-value jobs.</p>
+        </div>
       </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">What happens if there's a dispute or damage claim?</summary>
+      <details class="accordion">
+        <summary>What happens if there's a dispute or damage claim?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">The pre-collection condition check (photos + sign-off) is your protection. Any damage claimed must be evidenced against the baseline condition record. Our disputes team handles claims fairly and with reference to the photographic evidence. We're not in the business of stiffing drivers on manufactured damage claims.</p>
+        </div>
       </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">Can I specify which areas I cover?</summary>
+      <details class="accordion">
+        <summary>Can I specify which areas I cover?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Yes. In your driver profile you set your home base, the radius you're willing to cover for collection, and whether you'll take national (longer distance) jobs. You can update these preferences at any time via WhatsApp. Our system respects your coverage settings and won't send you jobs outside your area.</p>
+        </div>
       </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">How long does the vetting process take?</summary>
+      <details class="accordion">
+        <summary>How long does the vetting process take?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">For most applicants with all documents ready, vetting takes 2–5 working days. The main bottleneck is usually insurance verification — if your broker is quick to respond to our confirmation request, the process is very fast. We'll keep you updated throughout via WhatsApp.</p>
+        </div>
       </details>
-      <details style="background:linear-gradient(135deg,#141C2E,#0E1825);border:1px solid rgba(0,232,143,0.25);border-radius:12px;padding:24px;">
-        <summary style="color:#00E88F;font-weight:700;cursor:pointer;list-style:none;">🔁 How does the Empty Leg feature work exactly?</summary>
+      <details class="accordion" style="background:linear-gradient(135deg,#141C2E,#0E1825);border:1px solid rgba(0,232,143,0.25);">
+        <summary style="color:#00E88F;">🔁 How does the Empty Leg feature work exactly?<span class="accordion-icon" style="color:#00E88F;">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Every time you confirm a delivery via WhatsApp, our AI automatically checks your current location against all pending customer requests nearby. If there's a vehicle collection on or near your route home that matches your equipment type, we'll send you a WhatsApp message with the job details and a preferential rate. You reply YES or DECLINE — it's entirely your choice, with no penalty for declining. The rate is slightly reduced compared to a standard booked job (to pass a saving to the customer who needs a quick turnaround), but since your fuel and time costs for the return are largely sunk, almost all of it is direct profit. Most of our active partners pocket an extra £300–£600 per week from empty leg jobs alone.</p>
+        </div>
       </details>
     </div>
   </section>

@@ -166,48 +166,52 @@ import Layout from '../layouts/Layout.astro';
     <div style="margin-bottom:40px;border-radius:16px;overflow:hidden;">
       <img src="/images/what-we-transport.jpg" alt="Car transporter truck loaded with vehicles on a UK motorway" style="width:100%;max-height:320px;object-fit:cover;border-radius:16px;display:block;" />
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;">
+    <div class="hscroll-outer" id="transport-scroll">
+      <button class="hscroll-btn prev" onclick="document.getElementById('transport-track').scrollBy({left:-260,behavior:'smooth'})" aria-label="Previous">&#8249;</button>
+      <button class="hscroll-btn next" onclick="document.getElementById('transport-track').scrollBy({left:260,behavior:'smooth'})" aria-label="Next">&#8250;</button>
+      <div class="hscroll-track" id="transport-track" style="padding-bottom:12px;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;width:min(240px,72vw);">
         <div style="font-size:2rem;margin-bottom:12px;">🚗</div>
         <h3 style="color:#ffffff;font-weight:600;font-size:0.95rem;margin-bottom:8px;">Standard Cars</h3>
         <p style="color:#8B96A8;font-size:0.8rem;">Hatchbacks, saloons, estates — any make or model</p>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;width:min(240px,72vw);">
         <div style="font-size:2rem;margin-bottom:12px;">🚙</div>
         <h3 style="color:#ffffff;font-weight:600;font-size:0.95rem;margin-bottom:8px;">SUVs &amp; 4x4s</h3>
         <p style="color:#8B96A8;font-size:0.8rem;">All sizes from compact crossovers to full-size SUVs</p>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;width:min(240px,72vw);">
         <div style="font-size:2rem;margin-bottom:12px;">🚐</div>
         <h3 style="color:#ffffff;font-weight:600;font-size:0.95rem;margin-bottom:8px;">Vans to 3.5t</h3>
         <p style="color:#8B96A8;font-size:0.8rem;">Small panel vans to Sprinter-size transits</p>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;width:min(240px,72vw);">
         <div style="font-size:2rem;margin-bottom:12px;">🏎️</div>
         <h3 style="color:#ffffff;font-weight:600;font-size:0.95rem;margin-bottom:8px;">Prestige &amp; Sports</h3>
         <p style="color:#8B96A8;font-size:0.8rem;">Ferrari, Lamborghini, Porsche — handled with care</p>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;width:min(240px,72vw);">
         <div style="font-size:2rem;margin-bottom:12px;">🏛️</div>
         <h3 style="color:#ffffff;font-weight:600;font-size:0.95rem;margin-bottom:8px;">Classic Vehicles</h3>
         <p style="color:#8B96A8;font-size:0.8rem;">Vintage and classic cars transported with specialist care</p>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;width:min(240px,72vw);">
         <div style="font-size:2rem;margin-bottom:12px;">🔧</div>
         <h3 style="color:#ffffff;font-weight:600;font-size:0.95rem;margin-bottom:8px;">Non-Runners</h3>
         <p style="color:#8B96A8;font-size:0.8rem;">Recovered, SORN'd or non-starting vehicles transported on flatbed</p>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;width:min(240px,72vw);">
         <div style="font-size:2rem;margin-bottom:12px;">🏍️</div>
         <h3 style="color:#ffffff;font-weight:600;font-size:0.95rem;margin-bottom:8px;">Motorcycles</h3>
         <p style="color:#8B96A8;font-size:0.8rem;">Bikes securely loaded and transported across the UK</p>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;text-align:center;width:min(240px,72vw);">
         <div style="font-size:2rem;margin-bottom:12px;">⚡</div>
         <h3 style="color:#ffffff;font-weight:600;font-size:0.95rem;margin-bottom:8px;">Electric Vehicles</h3>
         <p style="color:#8B96A8;font-size:0.8rem;">EV-specialist drivers for battery-safe transport</p>
       </div>
-    </div>
+      </div><!-- end hscroll-track -->
+    </div><!-- end hscroll-outer -->
   </section>
 
   <!-- UK COVERAGE -->
@@ -268,20 +272,27 @@ import Layout from '../layouts/Layout.astro';
   <section style="padding:0 24px 80px;max-width:900px;margin:0 auto;">
     <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#ffffff;margin-bottom:40px;text-align:center;">Process FAQ</h2>
     <div style="display:flex;flex-direction:column;gap:16px;">
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">What information do I need to provide?</summary>
+      <details class="accordion">
+        <summary>What information do I need to provide?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">You need: (1) collection address or postcode, (2) delivery address or postcode, (3) vehicle make/model or registration, (4) whether it's a runner or non-runner, and (5) your preferred date. Everything else our AI can figure out or ask about.</p>
+        </div>
       </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">Can I book for someone else's address?</summary>
+      <details class="accordion">
+        <summary>Can I book for someone else's address?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Absolutely. Dealers book deliveries to customers all the time. Just give us the collection contact name and delivery contact name along with their addresses. The driver will call ahead to arrange access.</p>
+        </div>
       </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">What if my vehicle is a non-runner?</summary>
+      <details class="accordion">
+        <summary>What if my vehicle is a non-runner?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Just let us know in your message that it's a non-runner. We'll ask you a few quick questions to make sure we send the right driver and equipment — things like whether the vehicle rolls, whether it can be winched onto a trailer, and whether it's easily accessible. Once we have those details, we'll give you an accurate all-in quote that covers everything.</p>
+        </div>
       </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">How far in advance do I need to book?</summary>
+      <details class="accordion">
+        <summary>How far in advance do I need to book?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Book whenever you're ready — we work fast. Our aim is same-day collection and delivery where timings allow, so don't worry about leaving it too late.</p>
         <p style="color:#8B96A8;margin-top:12px;line-height:1.7;">The main exception is <strong style="color:#ffffff;">auction house collections</strong>. Many auction sites require a pre-booked timed collection slot, which may mean the collection falls on the next day or later. That's absolutely fine — just let us know:</p>
         <ul style="color:#8B96A8;margin-top:8px;margin-bottom:0;padding-left:20px;line-height:2;">
@@ -290,14 +301,19 @@ import Layout from '../layouts/Layout.astro';
           <li>The vehicle registration and any other details required on arrival</li>
         </ul>
         <p style="color:#8B96A8;margin-top:12px;line-height:1.7;">The same applies when <strong style="color:#ffffff;">dropping a vehicle to auction</strong> — just flag it when booking and give us the relevant details so we can match the right driver to the job and make sure everything runs smoothly on the day.</p>
+        </div>
       </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">What if there's a problem during transport?</summary>
+      <details class="accordion">
+        <summary>What if there's a problem during transport?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Our AI monitoring system detects delays and anomalies. If a job runs late or something unexpected happens, you'll be notified proactively via WhatsApp. Our support team is available 7 days a week to assist with any issues, and all jobs are insured throughout.</p>
+        </div>
       </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;">
-        <summary style="color:#ffffff;font-weight:600;cursor:pointer;list-style:none;">Can I cancel or amend a booking?</summary>
+      <details class="accordion">
+        <summary>Can I cancel or amend a booking?<span class="accordion-icon">+</span></summary>
+        <div class="accordion-body">
         <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Yes. Cancellations made more than 24 hours before collection are fully refunded. For amendments, just message us on WhatsApp and we'll do our best to accommodate changes. See our full terms for details on cancellation policy.</p>
+        </div>
       </details>
     </div>
   </section>

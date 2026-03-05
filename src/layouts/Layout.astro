@@ -522,5 +522,42 @@ const canonicalURL = canonical || Astro.url.href;
       }
     });
   </script>
+
+  <script>
+    // =============================================
+    // HORIZONTAL SCROLL — mouse drag support
+    // =============================================
+    document.querySelectorAll('.hscroll-track').forEach(function(track) {
+      var isDown = false;
+      var startX;
+      var scrollLeft;
+
+      track.addEventListener('mousedown', function(e) {
+        isDown = true;
+        track.classList.add('active');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+        e.preventDefault();
+      });
+
+      track.addEventListener('mouseleave', function() {
+        isDown = false;
+        track.classList.remove('active');
+      });
+
+      track.addEventListener('mouseup', function() {
+        isDown = false;
+        track.classList.remove('active');
+      });
+
+      track.addEventListener('mousemove', function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - track.offsetLeft;
+        var walk = (x - startX) * 1.5;
+        track.scrollLeft = scrollLeft - walk;
+      });
+    });
+  </script>
 </body>
 </html>

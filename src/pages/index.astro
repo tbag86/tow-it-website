@@ -70,8 +70,11 @@ import Layout from '../layouts/Layout.astro';
       <h2 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:#ffffff;margin-bottom:16px;">Vehicle transport in three steps</h2>
       <p style="color:#8B96A8;font-size:1.1rem;max-width:560px;margin:0 auto;">No calls, no forms, no apps to download. Just WhatsApp our AI and we handle everything from quote to delivery.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;overflow:hidden;position:relative;">
+    <div class="hscroll-outer" id="steps-scroll">
+      <button class="hscroll-btn prev" onclick="document.getElementById('steps-track').scrollBy({left:-340,behavior:'smooth'})" aria-label="Previous">&#8249;</button>
+      <button class="hscroll-btn next" onclick="document.getElementById('steps-track').scrollBy({left:340,behavior:'smooth'})" aria-label="Next">&#8250;</button>
+      <div class="hscroll-track" id="steps-track" style="padding-bottom:12px;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;overflow:hidden;position:relative;width:min(340px,85vw);">
         <img src="/images/step-whatsapp.jpg" alt="Person typing WhatsApp message to book car transport" style="width:100%;height:200px;object-fit:cover;display:block;" />
         <div style="padding:32px;position:relative;">
           <div style="position:absolute;top:-20px;right:16px;font-size:3rem;font-weight:900;color:#1A2540;line-height:1;">01</div>
@@ -82,7 +85,7 @@ import Layout from '../layouts/Layout.astro';
           <p style="color:#8B96A8;line-height:1.7;">Tell our AI where the vehicle needs to go, what it is, and when. That's it. No forms, no sign-up required. Just message us like you'd message a friend.</p>
         </div>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;overflow:hidden;position:relative;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;overflow:hidden;position:relative;width:min(340px,85vw);">
         <img src="/images/step-ai-matching.jpg" alt="AI neural network matching drivers to transport jobs" style="width:100%;height:200px;object-fit:cover;display:block;" />
         <div style="padding:32px;position:relative;">
           <div style="position:absolute;top:-20px;right:16px;font-size:3rem;font-weight:900;color:#1A2540;line-height:1;">02</div>
@@ -93,7 +96,7 @@ import Layout from '../layouts/Layout.astro';
           <p style="color:#8B96A8;line-height:1.7;">Our AI instantly checks our network of vetted transport companies across the UK. It matches your job to the best available driver based on location, vehicle type, and rating — then sends you a confirmed quote.</p>
         </div>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;overflow:hidden;position:relative;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;overflow:hidden;position:relative;width:min(340px,85vw);">
         <img src="/images/step-delivery.jpg" alt="Car delivered to happy customer with driver handing over keys" style="width:100%;height:200px;object-fit:cover;display:block;" />
         <div style="padding:32px;position:relative;">
           <div style="position:absolute;top:-20px;right:16px;font-size:3rem;font-weight:900;color:#1A2540;line-height:1;">03</div>
@@ -104,7 +107,8 @@ import Layout from '../layouts/Layout.astro';
           <p style="color:#8B96A8;line-height:1.7;">Accept the quote, and your driver is confirmed. You'll get collection and delivery updates direct to your WhatsApp. No chasing, no guessing — real-time status throughout.</p>
         </div>
       </div>
-    </div>
+      </div><!-- end hscroll-track -->
+    </div><!-- end hscroll-outer -->
     <div style="text-align:center;margin-top:40px;">
       <a href="/how-it-works" style="display:inline-flex;align-items:center;gap:8px;color:#00C2FF;font-weight:600;text-decoration:none;font-size:0.9rem;">
         See the full process
@@ -141,38 +145,42 @@ import Layout from '../layouts/Layout.astro';
       <div style="margin-bottom:48px;border-radius:16px;overflow:hidden;max-height:360px;">
         <img src="/images/whatsapp-booking.jpg" alt="Hands holding smartphone showing WhatsApp car transport booking" style="width:100%;height:360px;object-fit:cover;object-position:center;display:block;" />
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
-        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;">
+      <div class="hscroll-outer" id="features-scroll">
+        <button class="hscroll-btn prev" onclick="document.getElementById('features-track').scrollBy({left:-340,behavior:'smooth'})" aria-label="Previous">&#8249;</button>
+        <button class="hscroll-btn next" onclick="document.getElementById('features-track').scrollBy({left:340,behavior:'smooth'})" aria-label="Next">&#8250;</button>
+        <div class="hscroll-track" id="features-track" style="padding-bottom:12px;">
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;width:min(320px,82vw);">
           <div style="color:#00C2FF;font-size:1.5rem;margin-bottom:12px;">⚡</div>
           <h3 style="color:#ffffff;font-weight:700;font-size:1.1rem;margin-bottom:10px;">Instant Quote, Not an Auction</h3>
           <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">On other platforms you post a job and wait hours for bids to roll in. With Tow It, your AI-generated quote arrives in under 2 minutes. Accept it and your job is booked.</p>
         </div>
-        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;">
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;width:min(320px,82vw);">
           <div style="color:#00E88F;font-size:1.5rem;margin-bottom:12px;">✓</div>
           <h3 style="color:#ffffff;font-weight:700;font-size:1.1rem;margin-bottom:10px;">Pre-Vetted Transport Companies</h3>
           <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Every driver in our network has been verified. Insurance checked, reviews validated, operating licences confirmed. You're never taking a gamble on who turns up.</p>
         </div>
-        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;">
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;width:min(320px,82vw);">
           <div style="color:#FF6B2B;font-size:1.5rem;margin-bottom:12px;">💬</div>
           <h3 style="color:#ffffff;font-weight:700;font-size:1.1rem;margin-bottom:10px;">One Interface: WhatsApp</h3>
           <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">No apps to download, no accounts to create, no portals to log into. Everything happens on WhatsApp — the app you already have on your phone right now.</p>
         </div>
-        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;">
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;width:min(320px,82vw);">
           <div style="color:#00C2FF;font-size:1.5rem;margin-bottom:12px;">🔒</div>
           <h3 style="color:#ffffff;font-weight:700;font-size:1.1rem;margin-bottom:10px;">No Hidden Fees</h3>
           <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">The price you're quoted is the price you pay. No buyer protection charges, no platform fees bolted on at checkout. Transparent pricing from the start.</p>
         </div>
-        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;">
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;width:min(320px,82vw);">
           <div style="color:#00E88F;font-size:1.5rem;margin-bottom:12px;">📍</div>
           <h3 style="color:#ffffff;font-weight:700;font-size:1.1rem;margin-bottom:10px;">Real-Time Updates</h3>
           <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Know where your vehicle is at every stage. Collection confirmed, en route, delivered — you get WhatsApp notifications throughout, automatically.</p>
         </div>
-        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;">
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;width:min(320px,82vw);">
           <div style="color:#FF6B2B;font-size:1.5rem;margin-bottom:12px;">🕐</div>
           <h3 style="color:#ffffff;font-weight:700;font-size:1.1rem;margin-bottom:10px;">24/7 AI Availability</h3>
           <p style="color:#8B96A8;font-size:0.9rem;line-height:1.7;">Need to book at 11pm on a Sunday? No problem. Our AI is always on, always available, and always ready to get your vehicle booked in without any waiting for office hours.</p>
         </div>
-      </div>
+        </div><!-- end hscroll-track -->
+      </div><!-- end hscroll-outer -->
     </div>
   </section>
 
@@ -246,8 +254,11 @@ import Layout from '../layouts/Layout.astro';
           <img src="/images/five-stars.jpg" alt="Five star customer ratings" style="max-width:340px;height:auto;margin:0 auto;border-radius:8px;display:block;" />
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
-        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;">
+      <div class="hscroll-outer" id="testimonials-scroll">
+        <button class="hscroll-btn prev" onclick="document.getElementById('testimonials-track').scrollBy({left:-360,behavior:'smooth'})" aria-label="Previous">&#8249;</button>
+        <button class="hscroll-btn next" onclick="document.getElementById('testimonials-track').scrollBy({left:360,behavior:'smooth'})" aria-label="Next">&#8250;</button>
+        <div class="hscroll-track" id="testimonials-track" style="padding-bottom:12px;">
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;width:min(360px,88vw);">
           <div style="color:#FF6B2B;font-size:1.1rem;margin-bottom:16px;">★★★★★</div>
           <p style="color:#8B96A8;line-height:1.7;margin-bottom:20px;font-style:italic;">"Used Tow It to move a customer's part-ex from our Leeds branch down to our Exeter site. WhatsApp'd at 9am, driver confirmed by 9:15, vehicle collected same afternoon. Incredible service — I'll never use those other platforms again."</p>
           <div style="display:flex;align-items:center;gap:12px;">
@@ -258,7 +269,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </div>
         </div>
-        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;">
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;width:min(360px,88vw);">
           <div style="color:#FF6B2B;font-size:1.1rem;margin-bottom:16px;">★★★★★</div>
           <p style="color:#8B96A8;line-height:1.7;margin-bottom:20px;font-style:italic;">"I bought a car at auction in Birmingham and needed it delivering to Edinburgh. The price was fair and completely transparent. The driver kept me updated the whole way up and the car arrived in perfect condition. Really impressed."</p>
           <div style="display:flex;align-items:center;gap:12px;">
@@ -269,7 +280,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </div>
         </div>
-        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;">
+        <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:28px;width:min(360px,88vw);">
           <div style="color:#FF6B2B;font-size:1.1rem;margin-bottom:16px;">★★★★★</div>
           <p style="color:#8B96A8;line-height:1.7;margin-bottom:20px;font-style:italic;">"As a transport company, joining Tow It changed our business. We went from spending hours on other platforms bidding and losing jobs to getting a steady stream of confirmed, fairly priced work straight to our phones. The payment is always on time too."</p>
           <div style="display:flex;align-items:center;gap:12px;">
@@ -280,7 +291,8 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </div>
         </div>
-      </div>
+        </div><!-- end hscroll-track -->
+      </div><!-- end hscroll-outer -->
     </div>
   </section>
 
@@ -296,41 +308,51 @@ import Layout from '../layouts/Layout.astro';
       <h2 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;color:#ffffff;">Common questions</h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:16px;">
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;cursor:pointer;">
-        <summary style="color:#ffffff;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+      <details class="accordion">
+        <summary>
           How much does vehicle transport cost?
-          <span style="color:#00C2FF;font-size:1.25rem;flex-shrink:0;">+</span>
+          <span class="accordion-icon">+</span>
         </summary>
-        <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Prices vary based on distance, vehicle type, and timing. As a rough guide, a standard car transport within 100 miles typically costs £85–£150. Longer routes and larger vehicles cost more. Get a precise quote by messaging us on WhatsApp — it takes less than a minute and the price is always all-in, with no hidden fees.</p>
-      </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;cursor:pointer;">
-        <summary style="color:#ffffff;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+
+        <div class="accordion-body">        <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Prices vary based on distance, vehicle type, and timing. As a rough guide, a standard car transport within 100 miles typically costs £85–£150. Longer routes and larger vehicles cost more. Get a precise quote by messaging us on WhatsApp — it takes less than a minute and the price is always all-in, with no hidden fees.</p>
+
+        </div>      </details>
+      <details class="accordion">
+        <summary>
           How quickly can you collect my vehicle?
-          <span style="color:#00C2FF;font-size:1.25rem;flex-shrink:0;">+</span>
+          <span class="accordion-icon">+</span>
         </summary>
-        <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">In most cases we can arrange same-day or next-day collection. For urgent requirements, let us know in your message and we'll do our best to accommodate. Our network covers all UK regions, so wherever you are, we typically have a driver available nearby.</p>
-      </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;cursor:pointer;">
-        <summary style="color:#ffffff;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+
+        <div class="accordion-body">        <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">In most cases we can arrange same-day or next-day collection. For urgent requirements, let us know in your message and we'll do our best to accommodate. Our network covers all UK regions, so wherever you are, we typically have a driver available nearby.</p>
+
+        </div>      </details>
+      <details class="accordion">
+        <summary>
           Is my vehicle insured during transport?
-          <span style="color:#00C2FF;font-size:1.25rem;flex-shrink:0;">+</span>
+          <span class="accordion-icon">+</span>
         </summary>
-        <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Yes. All transport companies in the Tow It network must hold appropriate goods-in-transit and motor trade insurance as a condition of joining. Your vehicle is covered throughout the collection and delivery process. We can provide insurance details for any booking on request.</p>
-      </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;cursor:pointer;">
-        <summary style="color:#ffffff;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+
+        <div class="accordion-body">        <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">Yes. All transport companies in the Tow It network must hold appropriate goods-in-transit and motor trade insurance as a condition of joining. Your vehicle is covered throughout the collection and delivery process. We can provide insurance details for any booking on request.</p>
+
+        </div>      </details>
+      <details class="accordion">
+        <summary>
           What types of vehicles can you transport?
-          <span style="color:#00C2FF;font-size:1.25rem;flex-shrink:0;">+</span>
+          <span class="accordion-icon">+</span>
         </summary>
-        <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">We handle all standard cars, vans up to 3.5 tonnes, motorcycles, classic and prestige vehicles, non-runners, and trade plates deliveries. For specialist vehicles such as plant equipment or HGVs, get in touch and we'll advise on availability.</p>
-      </details>
-      <details style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:24px;cursor:pointer;">
-        <summary style="color:#ffffff;font-weight:600;font-size:1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+
+        <div class="accordion-body">        <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">We handle all standard cars, vans up to 3.5 tonnes, motorcycles, classic and prestige vehicles, non-runners, and trade plates deliveries. For specialist vehicles such as plant equipment or HGVs, get in touch and we'll advise on availability.</p>
+
+        </div>      </details>
+      <details class="accordion">
+        <summary>
           Do I need to create an account?
-          <span style="color:#00C2FF;font-size:1.25rem;flex-shrink:0;">+</span>
+          <span class="accordion-icon">+</span>
         </summary>
-        <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">No account needed for one-off bookings. Just message us on WhatsApp and we'll handle everything. If you're a dealer or regular customer, we can set up a business account with invoicing and volume pricing — just mention this when you get in touch.</p>
-      </details>
+
+        <div class="accordion-body">        <p style="color:#8B96A8;margin-top:16px;line-height:1.7;">No account needed for one-off bookings. Just message us on WhatsApp and we'll handle everything. If you're a dealer or regular customer, we can set up a business account with invoicing and volume pricing — just mention this when you get in touch.</p>
+
+        </div>      </details>
     </div>
     <div style="text-align:center;margin-top:32px;">
       <a href="/how-it-works" style="color:#00C2FF;font-weight:600;text-decoration:none;font-size:0.9rem;">See all FAQs on the How It Works page →</a>

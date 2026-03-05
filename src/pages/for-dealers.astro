@@ -171,8 +171,11 @@ import Layout from '../layouts/Layout.astro';
       <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#ffffff;margin-bottom:12px;">Volume pricing tiers</h2>
       <p style="color:#8B96A8;max-width:500px;margin:0 auto;line-height:1.7;">The more you move, the more you save. All prices based on standard car, average 100-mile movement.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:32px;text-align:center;">
+    <div class="hscroll-outer" id="pricing-tiers-scroll">
+      <button class="hscroll-btn prev" onclick="document.getElementById('pricing-tiers-track').scrollBy({left:-300,behavior:'smooth'})" aria-label="Previous">&#8249;</button>
+      <button class="hscroll-btn next" onclick="document.getElementById('pricing-tiers-track').scrollBy({left:300,behavior:'smooth'})" aria-label="Next">&#8250;</button>
+      <div class="hscroll-track" id="pricing-tiers-track" style="padding-bottom:12px;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:32px;text-align:center;width:min(300px,85vw);">
         <div style="color:#8B96A8;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Ad Hoc</div>
         <div style="font-size:2.5rem;font-weight:900;color:#ffffff;margin-bottom:4px;">Standard</div>
         <div style="color:#8B96A8;font-size:0.85rem;margin-bottom:24px;">1–9 vehicles/month</div>
@@ -187,7 +190,7 @@ import Layout from '../layouts/Layout.astro';
         </ul>
         <a href="https://wa.me/447700000000?text=Hi%20I%20need%20a%20one-off%20vehicle%20transport%20quote" target="_blank" style="display:block;text-align:center;background:#1A2540;color:#ffffff;font-weight:600;padding:12px;border-radius:8px;text-decoration:none;font-size:0.875rem;">Get a Quote</a>
       </div>
-      <div style="background:#141C2E;border:2px solid #00C2FF;border-radius:16px;padding:32px;text-align:center;position:relative;">
+      <div style="background:#141C2E;border:2px solid #00C2FF;border-radius:16px;padding:32px;text-align:center;position:relative;width:min(300px,85vw);">
         <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#00C2FF;color:#080C14;font-size:0.75rem;font-weight:700;padding:4px 16px;border-radius:9999px;">MOST POPULAR</div>
         <div style="color:#00C2FF;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Dealer Standard</div>
         <div style="font-size:2.5rem;font-weight:900;color:#ffffff;margin-bottom:4px;">Pro</div>
@@ -205,7 +208,7 @@ import Layout from '../layouts/Layout.astro';
         </ul>
         <a href="https://wa.me/447700000000?text=Hi%20I%27d%20like%20to%20set%20up%20a%20dealer%20account%20-%20Pro%20tier" target="_blank" style="display:block;text-align:center;background:#00C2FF;color:#080C14;font-weight:700;padding:12px;border-radius:8px;text-decoration:none;font-size:0.875rem;">Set Up Account</a>
       </div>
-      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:32px;text-align:center;">
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:32px;text-align:center;width:min(300px,85vw);">
         <div style="color:#FF6B2B;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Dealer Group</div>
         <div style="font-size:2.5rem;font-weight:900;color:#ffffff;margin-bottom:4px;">Enterprise</div>
         <div style="color:#8B96A8;font-size:0.85rem;margin-bottom:24px;">50+ vehicles/month</div>
@@ -222,7 +225,8 @@ import Layout from '../layouts/Layout.astro';
         </ul>
         <a href="https://wa.me/447700000000?text=Hi%2C%20I%20represent%20a%20dealer%20group%20and%20want%20to%20discuss%20enterprise%20pricing" target="_blank" style="display:block;text-align:center;background:#FF6B2B;color:#ffffff;font-weight:700;padding:12px;border-radius:8px;text-decoration:none;font-size:0.875rem;">Speak to Our Team</a>
       </div>
-    </div>
+      </div><!-- end hscroll-track -->
+    </div><!-- end hscroll-outer -->
   </section>
 
   <!-- CASE STUDY -->
