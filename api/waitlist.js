@@ -1,5 +1,5 @@
 // Vercel Serverless Function — Towit.ai Waitlist Form Handler
-// Sends email to info@tow-it.ai with CC to hello@tombagshaw.co.uk via Resend API
+// Sends email to info@tow-it.ai with CC to hello@tombagshaw.co.uk and towitai.ltd@gmail.com via Resend API
 
 export default async function handler(req, res) {
   // CORS headers for fetch-based submissions
@@ -123,7 +123,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: 'Towit.ai Waitlist <noreply@towit.ai>',
         to: ['info@tow-it.ai'],
-        cc: ['hello@tombagshaw.co.uk'],
+        cc: ['hello@tombagshaw.co.uk', 'towitai.ltd@gmail.com'],
         subject: `New Waitlist Signup — ${name} (${isDriver ? 'Driver' : 'Customer'})`,
         html: emailHtml,
         reply_to: email,
