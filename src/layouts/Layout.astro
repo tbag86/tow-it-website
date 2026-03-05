@@ -68,7 +68,12 @@ const canonicalURL = canonical || Astro.url.href;
           <a href="/about" style="color:#8B96A8;text-decoration:none;font-size:0.875rem;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#8B96A8'">About</a>
           <a href="/contact" style="color:#8B96A8;text-decoration:none;font-size:0.875rem;font-weight:500;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#8B96A8'">Contact</a>
         </div>
-        <div style="display:flex;align-items:center;gap:12px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <!-- JOIN WAITLIST — desktop -->
+          <button onclick="openWaitlistModal()" class="waitlist-nav-btn" style="display:inline-flex;align-items:center;gap:6px;background:transparent;border:1.5px solid #00C2FF;color:#00C2FF;font-size:0.8rem;font-weight:600;padding:7px 16px;border-radius:9999px;cursor:pointer;font-family:inherit;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,194,255,0.1)'" onmouseout="this.style.background='transparent'">
+            <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+            Join Waitlist
+          </button>
           <a href="https://wa.me/447700000000?text=Hi%20Tow%20It%2C%20I%20need%20a%20vehicle%20transport%20quote" target="_blank" rel="noopener" class="wa-nav-btn" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#ffffff;font-size:0.875rem;font-weight:600;padding:8px 18px;border-radius:9999px;text-decoration:none;">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             Get a Quote
@@ -88,6 +93,11 @@ const canonicalURL = canonical || Astro.url.href;
         <a href="/pricing" style="color:#8B96A8;text-decoration:none;font-size:0.875rem;font-weight:500;">Pricing</a>
         <a href="/about" style="color:#8B96A8;text-decoration:none;font-size:0.875rem;font-weight:500;">About</a>
         <a href="/contact" style="color:#8B96A8;text-decoration:none;font-size:0.875rem;font-weight:500;">Contact</a>
+        <!-- JOIN WAITLIST — mobile -->
+        <button onclick="openWaitlistModal()" style="display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid #00C2FF;color:#00C2FF;font-size:0.875rem;font-weight:600;padding:10px 18px;border-radius:9999px;cursor:pointer;font-family:inherit;width:fit-content;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          Join the Waitlist
+        </button>
         <a href="https://wa.me/447700000000?text=Hi%20Tow%20It%2C%20I%20need%20a%20vehicle%20transport%20quote" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:0.875rem;font-weight:600;padding:10px 18px;border-radius:9999px;text-decoration:none;width:fit-content;">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           Get a Quote on WhatsApp
@@ -100,7 +110,30 @@ const canonicalURL = canonical || Astro.url.href;
     <slot />
   </main>
 
-  <footer style="background-color:#0E1421;border-top:1px solid #1A2540;margin-top:80px;">
+  <!-- PRE-FOOTER WAITLIST CTA STRIP — appears on every page -->
+  <section style="background:linear-gradient(135deg,#0E1421 0%,#141C2E 50%,#0E1421 100%);border-top:1px solid #1A2540;border-bottom:1px solid #1A2540;padding:56px 24px;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(circle,rgba(0,194,255,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="max-width:680px;margin:0 auto;position:relative;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#141C2E;border:1px solid #1A2540;border-radius:9999px;padding:5px 14px;margin-bottom:20px;">
+        <span style="width:7px;height:7px;background:#00C2FF;border-radius:50%;display:inline-block;animation:pulse 2s infinite;"></span>
+        <span style="color:#8B96A8;font-size:0.78rem;font-weight:500;">Launching Soon — Be First in Line</span>
+      </div>
+      <h2 style="font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:#ffffff;margin-bottom:14px;letter-spacing:-0.02em;">Get Early Access to Towit.ai</h2>
+      <p style="color:#8B96A8;font-size:1rem;line-height:1.7;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;">Whether you need vehicles transported or you're a driver looking for consistent work — join our waitlist now and be the first to know when we go live.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+        <button onclick="openWaitlistModal('customer')" style="display:inline-flex;align-items:center;gap:8px;background:#00C2FF;color:#080C14;font-size:0.95rem;font-weight:700;padding:13px 26px;border-radius:9999px;cursor:pointer;border:none;font-family:inherit;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          I Need a Vehicle Transported
+        </button>
+        <button onclick="openWaitlistModal('driver')" style="display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid #00E88F;color:#00E88F;font-size:0.95rem;font-weight:700;padding:13px 26px;border-radius:9999px;cursor:pointer;font-family:inherit;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,232,143,0.1)'" onmouseout="this.style.background='transparent'">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2 0M3 6l3-3h8l3 3M13 16h3a1 1 0 001-1v-2.586a1 1 0 00-.293-.707l-2.414-2.414A1 1 0 0016.586 9H13v7z"/></svg>
+          I'm a Driver / Transport Company
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background-color:#0E1421;border-top:1px solid #1A2540;">
     <div style="max-width:1280px;margin:0 auto;padding:64px 24px;">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;">
         <div>
@@ -149,15 +182,172 @@ const canonicalURL = canonical || Astro.url.href;
     </div>
   </footer>
 
+  <!-- =====================================================
+       WAITLIST MODAL
+  ====================================================== -->
+  <div id="waitlist-overlay" onclick="handleOverlayClick(event)" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:200;overflow-y:auto;padding:24px 16px;">
+    <div id="waitlist-modal" style="background:#141C2E;border:1px solid #1A2540;border-radius:20px;max-width:560px;width:100%;margin:0 auto;position:relative;overflow:hidden;" onclick="event.stopPropagation()">
+
+      <!-- Modal Header -->
+      <div style="background:linear-gradient(135deg,#0E1421,#141C2E);padding:28px 32px 24px;border-bottom:1px solid #1A2540;position:relative;">
+        <button onclick="closeWaitlistModal()" style="position:absolute;top:20px;right:20px;background:#1A2540;border:none;color:#8B96A8;width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;" aria-label="Close">&times;</button>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <div style="width:36px;height:36px;background:rgba(0,194,255,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#00C2FF" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </div>
+          <div>
+            <h2 style="color:#ffffff;font-size:1.25rem;font-weight:700;margin:0;">Join the Waitlist</h2>
+            <p style="color:#8B96A8;font-size:0.8rem;margin:2px 0 0;">Be first to access Towit.ai when we launch</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form State -->
+      <div id="waitlist-form-state" style="padding:28px 32px;">
+        <form id="waitlist-form" novalidate>
+
+          <!-- Name + Email row -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;" class="waitlist-2col">
+            <div>
+              <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">Full Name <span style="color:#00C2FF;">*</span></label>
+              <input type="text" name="name" id="wl-name" required placeholder="e.g. James Smith" style="width:100%;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;color:#ffffff;font-size:0.9rem;padding:10px 14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2FF'" onblur="this.style.borderColor='#1A2540'" />
+            </div>
+            <div>
+              <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">Email Address <span style="color:#00C2FF;">*</span></label>
+              <input type="email" name="email" id="wl-email" required placeholder="you@example.com" style="width:100%;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;color:#ffffff;font-size:0.9rem;padding:10px 14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2FF'" onblur="this.style.borderColor='#1A2540'" />
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div style="margin-bottom:14px;">
+            <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">WhatsApp / Mobile Number <span style="color:#4A5568;">(optional)</span></label>
+            <input type="tel" name="phone" id="wl-phone" placeholder="+44 7700 000000" style="width:100%;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;color:#ffffff;font-size:0.9rem;padding:10px 14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2FF'" onblur="this.style.borderColor='#1A2540'" />
+          </div>
+
+          <!-- Role selector -->
+          <div style="margin-bottom:14px;">
+            <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">I am a... <span style="color:#00C2FF;">*</span></label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              <label id="role-customer-label" style="display:flex;align-items:center;gap:10px;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;padding:12px 14px;cursor:pointer;transition:border-color 0.2s;">
+                <input type="radio" name="role" value="customer" id="wl-role-customer" style="display:none;" onchange="handleRoleChange(this.value)" />
+                <div id="radio-customer" style="width:16px;height:16px;border-radius:50%;border:2px solid #4A5568;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.2s;"></div>
+                <div>
+                  <div style="color:#ffffff;font-size:0.85rem;font-weight:600;">Customer</div>
+                  <div style="color:#8B96A8;font-size:0.75rem;margin-top:1px;">I need a vehicle transported</div>
+                </div>
+              </label>
+              <label id="role-driver-label" style="display:flex;align-items:center;gap:10px;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;padding:12px 14px;cursor:pointer;transition:border-color 0.2s;">
+                <input type="radio" name="role" value="driver" id="wl-role-driver" style="display:none;" onchange="handleRoleChange(this.value)" />
+                <div id="radio-driver" style="width:16px;height:16px;border-radius:50%;border:2px solid #4A5568;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.2s;"></div>
+                <div>
+                  <div style="color:#ffffff;font-size:0.85rem;font-weight:600;">Driver / Company</div>
+                  <div style="color:#8B96A8;font-size:0.75rem;margin-top:1px;">I want to deliver vehicles</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- CUSTOMER FIELDS -->
+          <div id="customer-fields" style="display:none;margin-bottom:14px;">
+            <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">What service are you interested in?</label>
+            <select name="service_type" id="wl-service-type" style="width:100%;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;color:#ffffff;font-size:0.9rem;padding:10px 14px;font-family:inherit;outline:none;appearance:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2FF'" onblur="this.style.borderColor='#1A2540'">
+              <option value="">— Please select —</option>
+              <option value="Private / personal car transport">Private / personal car transport</option>
+              <option value="Dealer / trade transport">Dealer / trade transport</option>
+              <option value="Auction collection">Auction collection</option>
+              <option value="Fleet / multiple vehicles">Fleet / multiple vehicles</option>
+              <option value="International transport">International transport</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+          </div>
+
+          <!-- DRIVER FIELDS -->
+          <div id="driver-fields" style="display:none;">
+            <div style="margin-bottom:14px;">
+              <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">Vehicle / Equipment Type</label>
+              <select name="vehicle_type" id="wl-vehicle-type" style="width:100%;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;color:#ffffff;font-size:0.9rem;padding:10px 14px;font-family:inherit;outline:none;appearance:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2FF'" onblur="this.style.borderColor='#1A2540'">
+                <option value="">— Please select —</option>
+                <option value="Single car transporter">Single car transporter</option>
+                <option value="Multi-car transporter (2–4 cars)">Multi-car transporter (2–4 cars)</option>
+                <option value="Large car transporter (5+ cars)">Large car transporter (5+ cars)</option>
+                <option value="Recovery / breakdown truck">Recovery / breakdown truck</option>
+                <option value="Enclosed transporter">Enclosed transporter</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div style="margin-bottom:14px;">
+              <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">Your Base Location</label>
+              <input type="text" name="base_location" id="wl-base-location" placeholder="e.g. Birmingham, West Midlands" style="width:100%;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;color:#ffffff;font-size:0.9rem;padding:10px 14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2FF'" onblur="this.style.borderColor='#1A2540'" />
+            </div>
+          </div>
+
+          <!-- How did you hear about us -->
+          <div style="margin-bottom:14px;">
+            <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">How did you hear about us? <span style="color:#4A5568;">(optional)</span></label>
+            <select name="heard_from" id="wl-heard-from" style="width:100%;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;color:#ffffff;font-size:0.9rem;padding:10px 14px;font-family:inherit;outline:none;appearance:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2FF'" onblur="this.style.borderColor='#1A2540'">
+              <option value="">— Select one —</option>
+              <option value="Google / Search">Google / Search</option>
+              <option value="Instagram">Instagram</option>
+              <option value="TikTok">TikTok</option>
+              <option value="Facebook">Facebook</option>
+              <option value="Word of mouth / referral">Word of mouth / referral</option>
+              <option value="Industry contact">Industry contact</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Notes -->
+          <div style="margin-bottom:22px;">
+            <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">Anything else you'd like us to know? <span style="color:#4A5568;">(optional)</span></label>
+            <textarea name="notes" id="wl-notes" rows="3" placeholder="Any specific requirements, questions or details..." style="width:100%;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;color:#ffffff;font-size:0.9rem;padding:10px 14px;font-family:inherit;outline:none;resize:vertical;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2FF'" onblur="this.style.borderColor='#1A2540'"></textarea>
+          </div>
+
+          <!-- Error message -->
+          <div id="wl-error" style="display:none;background:rgba(255,107,43,0.1);border:1px solid rgba(255,107,43,0.3);border-radius:10px;padding:12px 16px;margin-bottom:16px;color:#FF6B2B;font-size:0.85rem;"></div>
+
+          <!-- Submit -->
+          <button type="submit" id="wl-submit-btn" style="width:100%;background:#00C2FF;color:#080C14;font-size:1rem;font-weight:700;padding:14px 24px;border-radius:10px;border:none;cursor:pointer;font-family:inherit;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;gap:8px;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+            <svg id="wl-submit-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+            <span id="wl-submit-text">Join the Waitlist</span>
+          </button>
+
+          <p style="color:#4A5568;font-size:0.75rem;text-align:center;margin-top:12px;">No spam. Unsubscribe any time. We'll only contact you about Towit.ai.</p>
+        </form>
+      </div>
+
+      <!-- Success State (hidden by default) -->
+      <div id="waitlist-success-state" style="display:none;padding:48px 32px;text-align:center;">
+        <div style="width:64px;height:64px;background:rgba(0,232,143,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+          <svg width="32" height="32" fill="none" stroke="#00E88F" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3 style="color:#ffffff;font-size:1.4rem;font-weight:700;margin-bottom:10px;">You're on the list! 🚀</h3>
+        <p style="color:#8B96A8;font-size:0.95rem;line-height:1.7;max-width:380px;margin:0 auto 24px;">Thanks for joining — we'll be in touch as soon as we launch. Keep an eye on your inbox!</p>
+        <button onclick="closeWaitlistModal()" style="background:#1A2540;border:none;color:#8B96A8;font-size:0.875rem;font-weight:600;padding:10px 24px;border-radius:9999px;cursor:pointer;font-family:inherit;">Close</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- END WAITLIST MODAL -->
+
   <style>
     @media (max-width: 768px) {
       .desktop-nav { display: none !important; }
       .wa-nav-btn { display: none !important; }
+      .waitlist-nav-btn { display: none !important; }
       #mobile-menu-btn { display: block !important; }
+      .waitlist-2col { grid-template-columns: 1fr !important; }
     }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    select option { background: #141C2E; color: #ffffff; }
+    #waitlist-overlay { display: flex; align-items: flex-start; justify-content: center; }
+    #waitlist-overlay[style*="display:none"] { display: none !important; }
   </style>
 
   <script>
+    // Mobile menu toggle
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     if (btn && menu) {
@@ -165,6 +355,172 @@ const canonicalURL = canonical || Astro.url.href;
         menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
       });
     }
+
+    // =============================================
+    // WAITLIST MODAL
+    // =============================================
+    function openWaitlistModal(presetRole) {
+      const overlay = document.getElementById('waitlist-overlay');
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      // Pre-select role if passed
+      if (presetRole === 'customer' || presetRole === 'driver') {
+        const radio = document.getElementById('wl-role-' + presetRole);
+        if (radio) {
+          radio.checked = true;
+          handleRoleChange(presetRole);
+        }
+      }
+    }
+
+    function closeWaitlistModal() {
+      const overlay = document.getElementById('waitlist-overlay');
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+      // Reset form after brief delay
+      setTimeout(() => {
+        resetWaitlistForm();
+      }, 300);
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('waitlist-overlay')) {
+        closeWaitlistModal();
+      }
+    }
+
+    // ESC key closes modal
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeWaitlistModal();
+    });
+
+    function handleRoleChange(role) {
+      const customerFields = document.getElementById('customer-fields');
+      const driverFields = document.getElementById('driver-fields');
+      const customerLabel = document.getElementById('role-customer-label');
+      const driverLabel = document.getElementById('role-driver-label');
+      const radioCustomer = document.getElementById('radio-customer');
+      const radioDriver = document.getElementById('radio-driver');
+
+      if (role === 'customer') {
+        customerFields.style.display = 'block';
+        driverFields.style.display = 'none';
+        customerLabel.style.borderColor = '#00C2FF';
+        driverLabel.style.borderColor = '#1A2540';
+        radioCustomer.style.borderColor = '#00C2FF';
+        radioCustomer.innerHTML = '<div style="width:8px;height:8px;background:#00C2FF;border-radius:50%;"></div>';
+        radioDriver.style.borderColor = '#4A5568';
+        radioDriver.innerHTML = '';
+      } else if (role === 'driver') {
+        customerFields.style.display = 'none';
+        driverFields.style.display = 'block';
+        driverLabel.style.borderColor = '#00E88F';
+        customerLabel.style.borderColor = '#1A2540';
+        radioDriver.style.borderColor = '#00E88F';
+        radioDriver.innerHTML = '<div style="width:8px;height:8px;background:#00E88F;border-radius:50%;"></div>';
+        radioCustomer.style.borderColor = '#4A5568';
+        radioCustomer.innerHTML = '';
+      }
+    }
+
+    function resetWaitlistForm() {
+      const form = document.getElementById('waitlist-form');
+      if (form) form.reset();
+      document.getElementById('customer-fields').style.display = 'none';
+      document.getElementById('driver-fields').style.display = 'none';
+      document.getElementById('role-customer-label').style.borderColor = '#1A2540';
+      document.getElementById('role-driver-label').style.borderColor = '#1A2540';
+      document.getElementById('radio-customer').style.borderColor = '#4A5568';
+      document.getElementById('radio-customer').innerHTML = '';
+      document.getElementById('radio-driver').style.borderColor = '#4A5568';
+      document.getElementById('radio-driver').innerHTML = '';
+      document.getElementById('wl-error').style.display = 'none';
+      document.getElementById('waitlist-form-state').style.display = 'block';
+      document.getElementById('waitlist-success-state').style.display = 'none';
+      const submitBtn = document.getElementById('wl-submit-btn');
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+      document.getElementById('wl-submit-text').textContent = 'Join the Waitlist';
+      document.getElementById('wl-submit-icon').style.display = 'inline';
+    }
+
+    // Form submission
+    document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const errorEl = document.getElementById('wl-error');
+      errorEl.style.display = 'none';
+
+      const name = document.getElementById('wl-name').value.trim();
+      const email = document.getElementById('wl-email').value.trim();
+      const roleInput = document.querySelector('input[name="role"]:checked');
+
+      if (!name) {
+        errorEl.textContent = 'Please enter your full name.';
+        errorEl.style.display = 'block';
+        document.getElementById('wl-name').focus();
+        return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.style.display = 'block';
+        document.getElementById('wl-email').focus();
+        return;
+      }
+      if (!roleInput) {
+        errorEl.textContent = 'Please select whether you are a customer or a driver.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      // Show loading state
+      const submitBtn = document.getElementById('wl-submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
+      document.getElementById('wl-submit-text').textContent = 'Submitting...';
+      document.getElementById('wl-submit-icon').style.display = 'none';
+
+      const payload = {
+        name,
+        email,
+        phone: document.getElementById('wl-phone').value.trim(),
+        role: roleInput.value,
+        service_type: document.getElementById('wl-service-type').value,
+        vehicle_type: document.getElementById('wl-vehicle-type').value,
+        base_location: document.getElementById('wl-base-location').value.trim(),
+        heard_from: document.getElementById('wl-heard-from').value,
+        notes: document.getElementById('wl-notes').value.trim(),
+      };
+
+      try {
+        const response = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          document.getElementById('waitlist-form-state').style.display = 'none';
+          document.getElementById('waitlist-success-state').style.display = 'block';
+        } else {
+          errorEl.textContent = result.error || 'Something went wrong. Please try again.';
+          errorEl.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+          document.getElementById('wl-submit-text').textContent = 'Join the Waitlist';
+          document.getElementById('wl-submit-icon').style.display = 'inline';
+        }
+      } catch (err) {
+        errorEl.textContent = 'Network error. Please check your connection and try again.';
+        errorEl.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        document.getElementById('wl-submit-text').textContent = 'Join the Waitlist';
+        document.getElementById('wl-submit-icon').style.display = 'inline';
+      }
+    });
   </script>
 </body>
 </html>
