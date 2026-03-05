@@ -31,9 +31,10 @@ import Layout from '../layouts/Layout.astro';
         <p style="color:#8B96A8;font-size:1.1rem;line-height:1.7;margin-bottom:32px;">Whether you're a small independent moving a handful of cars a month or a franchise group managing hundreds across multiple sites — it doesn't matter. Tow It is the transport infrastructure your dealership has been waiting for. Part-exchange stock to auction, sold vehicles delivered to customers across the country, inventory rebalanced between your sites — all handled.</p>
         <p style="color:#8B96A8;font-size:1rem;line-height:1.7;margin-bottom:32px;">Forget phoning round drivers, chasing quotations, or dealing with no-shows from other platforms. Your team messages our AI on WhatsApp, the job is confirmed in minutes, and billing is handled simply and transparently. Spend less time worrying about moving cars — and more time selling them.</p>
         <div style="display:flex;flex-wrap:wrap;gap:16px;">
-          <a href="https://wa.me/447700000000?text=Hi%20Tow%20It%2C%20I%27m%20a%20car%20dealer%20and%20I%27d%20like%20to%20set%20up%20a%20dealer%20account" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#00C2FF;color:#080C14;font-weight:700;padding:14px 28px;border-radius:9999px;text-decoration:none;font-size:0.95rem;">
-            Set Up a Dealer Account
-          </a>
+          <button onclick="openWaitlistModal()" style="display:inline-flex;align-items:center;gap:8px;background:#00C2FF;color:#080C14;font-size:0.95rem;font-weight:700;padding:14px 28px;border-radius:9999px;border:none;cursor:pointer;font-family:inherit;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+            Join the Waitlist
+          </button>
           <a href="#how-it-works" style="display:inline-flex;align-items:center;gap:8px;border:1px solid #1A2540;color:#ffffff;font-weight:600;padding:14px 28px;border-radius:9999px;text-decoration:none;font-size:0.95rem;">
             See How It Works
           </a>
@@ -188,7 +189,7 @@ import Layout from '../layouts/Layout.astro';
           <li style="color:#8B96A8;font-size:0.85rem;">✓ Vetted drivers</li>
           <li style="color:#8B96A8;font-size:0.85rem;">✓ WhatsApp updates</li>
         </ul>
-        <a href="https://wa.me/447700000000?text=Hi%20I%20need%20a%20one-off%20vehicle%20transport%20quote" target="_blank" style="display:block;text-align:center;background:#1A2540;color:#ffffff;font-weight:600;padding:12px;border-radius:8px;text-decoration:none;font-size:0.875rem;">Get a Quote</a>
+        <button onclick="openWaitlistModal()" style="display:block;width:100%;text-align:center;background:#1A2540;color:#ffffff;font-weight:600;padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:0.875rem;font-family:inherit;">Join Waitlist</button>
       </div>
       <div style="background:#141C2E;border:2px solid #00C2FF;border-radius:16px;padding:32px;text-align:center;position:relative;width:min(300px,85vw);">
         <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#00C2FF;color:#080C14;font-size:0.75rem;font-weight:700;padding:4px 16px;border-radius:9999px;">MOST POPULAR</div>
@@ -206,7 +207,7 @@ import Layout from '../layouts/Layout.astro';
           <li style="color:#8B96A8;font-size:0.85rem;"><span style="color:#00E88F;">✓</span> Dedicated account manager</li>
           <li style="color:#8B96A8;font-size:0.85rem;"><span style="color:#00E88F;">✓</span> Up to 10 team members</li>
         </ul>
-        <a href="https://wa.me/447700000000?text=Hi%20I%27d%20like%20to%20set%20up%20a%20dealer%20account%20-%20Pro%20tier" target="_blank" style="display:block;text-align:center;background:#00C2FF;color:#080C14;font-weight:700;padding:12px;border-radius:8px;text-decoration:none;font-size:0.875rem;">Set Up Account</a>
+        <button onclick="openWaitlistModal()" style="display:block;width:100%;text-align:center;background:#00C2FF;color:#080C14;font-weight:700;padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:0.875rem;font-family:inherit;">Join Waitlist</button>
       </div>
       <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:32px;text-align:center;width:min(300px,85vw);">
         <div style="color:#FF6B2B;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Dealer Group</div>
@@ -223,7 +224,7 @@ import Layout from '../layouts/Layout.astro';
           <li style="color:#8B96A8;font-size:0.85rem;"><span style="color:#00E88F;">✓</span> DMS integration (early access)</li>
           <li style="color:#8B96A8;font-size:0.85rem;"><span style="color:#00E88F;">✓</span> Unlimited team members</li>
         </ul>
-        <a href="https://wa.me/447700000000?text=Hi%2C%20I%20represent%20a%20dealer%20group%20and%20want%20to%20discuss%20enterprise%20pricing" target="_blank" style="display:block;text-align:center;background:#FF6B2B;color:#ffffff;font-weight:700;padding:12px;border-radius:8px;text-decoration:none;font-size:0.875rem;">Speak to Our Team</a>
+        <button onclick="openWaitlistModal()" style="display:block;width:100%;text-align:center;background:#FF6B2B;color:#ffffff;font-weight:700;padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:0.875rem;font-family:inherit;">Join Waitlist</button>
       </div>
       </div><!-- end hscroll-track -->
     </div><!-- end hscroll-outer -->
@@ -272,10 +273,10 @@ import Layout from '../layouts/Layout.astro';
     <div style="max-width:600px;margin:0 auto;">
       <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#ffffff;margin-bottom:16px;">Ready to set up your dealer account?</h2>
       <p style="color:#8B96A8;margin-bottom:32px;line-height:1.7;">Message us on WhatsApp and we'll have your account configured the same day. No contracts, no setup fees, cancel anytime.</p>
-      <a href="https://wa.me/447700000000?text=Hi%20Tow%20It%2C%20I%27m%20a%20car%20dealer%20and%20I%27d%20like%20to%20set%20up%20a%20dealer%20account" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#00C2FF;color:#080C14;font-size:1rem;font-weight:700;padding:14px 32px;border-radius:9999px;text-decoration:none;">
-        Set Up Your Dealer Account
-        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-      </a>
+      <button onclick="openWaitlistModal()" style="display:inline-flex;align-items:center;gap:10px;background:#00C2FF;color:#080C14;font-size:1rem;font-weight:700;padding:14px 32px;border-radius:9999px;border:none;cursor:pointer;font-family:inherit;">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+        Join the Waitlist
+      </button>
     </div>
   </section>
 

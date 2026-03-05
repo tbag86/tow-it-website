@@ -240,9 +240,10 @@ import Layout from '../layouts/Layout.astro';
       <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#ffffff;margin-bottom:16px;">Come and be part of it</h2>
       <p style="color:#8B96A8;margin-bottom:32px;line-height:1.7;">Whether you're a customer, dealer, transport company, or just curious — we'd love to hear from you.</p>
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
-        <a href="https://wa.me/447700000000?text=Hi%20Tow%20It" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#ffffff;font-size:1rem;font-weight:700;padding:14px 28px;border-radius:9999px;text-decoration:none;">
-          Message Us on WhatsApp
-        </a>
+        <button onclick="openWaitlistModal()" style="display:inline-flex;align-items:center;gap:10px;background:#00C2FF;color:#080C14;font-size:1rem;font-weight:700;padding:14px 28px;border-radius:9999px;border:none;cursor:pointer;font-family:inherit;">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          Join the Waitlist
+        </button>
         <a href="/contact" style="display:inline-flex;align-items:center;gap:8px;border:1px solid #1A2540;color:#ffffff;font-weight:600;padding:14px 28px;border-radius:9999px;text-decoration:none;font-size:1rem;">
           Contact the Team
         </a>

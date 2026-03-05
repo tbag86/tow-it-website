@@ -24,9 +24,9 @@ import Layout from '../layouts/Layout.astro';
         <h2 style="color:#ffffff;font-weight:700;font-size:1.1rem;margin-bottom:10px;">WhatsApp</h2>
         <p style="color:#8B96A8;font-size:0.875rem;line-height:1.6;margin-bottom:20px;">For transport quotes, booking enquiries, and any urgent questions. AI response in under 2 minutes, 24/7.</p>
         <p style="color:#ffffff;font-weight:600;font-size:0.9rem;margin-bottom:16px;">+44 7700 000000</p>
-        <a href="https://wa.me/447700000000?text=Hi%20Tow%20It" target="_blank" style="display:block;background:#25D366;color:#ffffff;font-weight:700;padding:12px;border-radius:9999px;text-decoration:none;font-size:0.9rem;text-align:center;">
-          Open WhatsApp
-        </a>
+        <button onclick="openWaitlistModal()" style="display:block;width:100%;background:#00C2FF;color:#080C14;font-weight:700;padding:12px;border-radius:9999px;border:none;cursor:pointer;font-size:0.9rem;text-align:center;font-family:inherit;">
+          Join the Waitlist
+        </button>
       </div>
 
       <!-- Email -->
@@ -89,20 +89,20 @@ import Layout from '../layouts/Layout.astro';
     <div style="margin-bottom:64px;">
       <h2 style="font-size:1.5rem;font-weight:800;color:#ffffff;margin-bottom:32px;text-align:center;">What are you contacting us about?</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
-        <a href="https://wa.me/447700000000?text=Hi%20Tow%20It%2C%20I%20need%20a%20vehicle%20transport%20quote" target="_blank" style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:20px;text-decoration:none;display:flex;align-items:center;gap:16px;" onmouseover="this.style.borderColor='#00C2FF'" onmouseout="this.style.borderColor='#1A2540'">
-          <div style="width:40px;height:40px;background:rgba(37,211,102,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.25rem;">🚗</div>
+        <button onclick="openWaitlistModal()" style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:20px;display:flex;align-items:center;gap:16px;cursor:pointer;font-family:inherit;text-align:left;width:100%;">
+          <div style="width:40px;height:40px;background:rgba(0,194,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.25rem;">🚗</div>
           <div>
             <div style="color:#ffffff;font-weight:600;font-size:0.9rem;">I need a transport quote</div>
-            <div style="color:#8B96A8;font-size:0.8rem;">Message on WhatsApp →</div>
+            <div style="color:#8B96A8;font-size:0.8rem;">Join the waitlist →</div>
           </div>
-        </a>
-        <a href="https://wa.me/447700000000?text=Hi%20Tow%20It%2C%20I%27m%20a%20car%20dealer%20and%20I%27d%20like%20to%20set%20up%20an%20account" target="_blank" style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:20px;text-decoration:none;display:flex;align-items:center;gap:16px;" onmouseover="this.style.borderColor='#00C2FF'" onmouseout="this.style.borderColor='#1A2540'">
+        </button>
+        <button onclick="openWaitlistModal()" style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:20px;display:flex;align-items:center;gap:16px;cursor:pointer;font-family:inherit;text-align:left;width:100%;">
           <div style="width:40px;height:40px;background:rgba(0,194,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.25rem;">🏪</div>
           <div>
             <div style="color:#ffffff;font-weight:600;font-size:0.9rem;">I'm a car dealer</div>
-            <div style="color:#8B96A8;font-size:0.8rem;">Set up a dealer account →</div>
+            <div style="color:#8B96A8;font-size:0.8rem;">Join the waitlist →</div>
           </div>
-        </a>
+        </button>
         <a href="/for-transport-companies#register" style="background:#141C2E;border:1px solid #1A2540;border-radius:12px;padding:20px;text-decoration:none;display:flex;align-items:center;gap:16px;" onmouseover="this.style.borderColor='#00E88F'" onmouseout="this.style.borderColor='#1A2540'">
           <div style="width:40px;height:40px;background:rgba(0,232,143,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.25rem;">🚛</div>
           <div>

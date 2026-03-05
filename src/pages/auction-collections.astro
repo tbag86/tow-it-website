@@ -42,10 +42,10 @@ import Layout from '../layouts/Layout.astro';
         <p style="color:#8B96A8;font-size:1.1rem;line-height:1.7;margin-bottom:16px;">If you're buying through BCA, Manheim, or any of the major UK auction houses, you already know the pressure. Clock starts the moment the hammer falls. Miss the collection window and the charges stack up fast.</p>
         <p style="color:#8B96A8;font-size:1rem;line-height:1.7;margin-bottom:32px;">Tow It is the transport infrastructure built specifically for high-volume trade buyers. Book via WhatsApp in minutes, get a confirmed driver assigned, and get your stock moving — every time, on time.</p>
         <div style="display:flex;flex-wrap:wrap;gap:16px;">
-          <a href="https://wa.me/447700000000?text=Hi%20Tow%20It%2C%20I%20need%20auction%20collection%20transport%20from%20BCA%2FManheim" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#FF6B2B;color:#ffffff;font-weight:700;padding:14px 28px;border-radius:9999px;text-decoration:none;font-size:0.95rem;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.534 5.854L.057 23.429l5.735-1.505A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.89 0-3.66-.502-5.187-1.38l-.371-.22-3.405.894.91-3.319-.242-.386A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-            Book a Collection Now
-          </a>
+          <button onclick="openWaitlistModal()" style="display:inline-flex;align-items:center;gap:8px;background:#00C2FF;color:#080C14;font-size:0.95rem;font-weight:700;padding:14px 28px;border-radius:9999px;border:none;cursor:pointer;font-family:inherit;">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+            Join the Waitlist
+          </button>
           <a href="#how-it-works" style="display:inline-flex;align-items:center;gap:8px;border:1px solid #1A2540;color:#ffffff;font-weight:600;padding:14px 28px;border-radius:9999px;text-decoration:none;font-size:0.95rem;">
             See How It Works
           </a>
@@ -299,10 +299,10 @@ import Layout from '../layouts/Layout.astro';
       <h2 style="font-size:clamp(1.8rem,4vw,2.75rem);font-weight:900;color:#ffffff;line-height:1.15;margin-bottom:20px;">Stop losing money to<br/>late collection charges.</h2>
       <p style="color:#8B96A8;font-size:1.05rem;line-height:1.7;margin-bottom:36px;">Message us on WhatsApp right now and we'll set up your trade account. Start booking auction collections today — and eliminate the transport headache from your buying process for good.</p>
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:32px;">
-        <a href="https://wa.me/447700000000?text=Hi%20Tow%20It%2C%20I%27d%20like%20to%20set%20up%20a%20trade%20account%20for%20auction%20collections" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#FF6B2B;color:#ffffff;font-weight:700;padding:16px 32px;border-radius:9999px;text-decoration:none;font-size:1rem;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.534 5.854L.057 23.429l5.735-1.505A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.89 0-3.66-.502-5.187-1.38l-.371-.22-3.405.894.91-3.319-.242-.386A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-          Set Up Trade Account
-        </a>
+        <button onclick="openWaitlistModal()" style="display:inline-flex;align-items:center;gap:10px;background:#00C2FF;color:#080C14;font-size:1rem;font-weight:700;padding:16px 32px;border-radius:9999px;border:none;cursor:pointer;font-family:inherit;">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          Join the Waitlist
+        </button>
         <a href="/for-dealers" style="display:inline-flex;align-items:center;gap:8px;border:1px solid #1A2540;color:#ffffff;font-weight:600;padding:16px 32px;border-radius:9999px;text-decoration:none;font-size:1rem;">
           Full Dealer Services →
         </a>
