@@ -15,16 +15,16 @@ function getSmartFallbackResponse(messages) {
   const msgCount = messages.filter(m => m.role === 'user').length;
 
   if (msgCount === 1 && msg.match(/(^(hi|hello|hey|yo|sup|hiya|howdy))|(just seen|instagram|seen this|what (do you do|is this|is towit|are you)|tell me more|whats this|what's this)/)) {
-    return "Hey there! 👋 Great to have you here. Towit.ai is building the UK's first AI-powered vehicle transport network — we connect people who need a vehicle moved with vetted, insured transport professionals right across the UK. Everything runs through WhatsApp, so there's no app to download — just a quick message and we handle the rest. Are you looking to get a vehicle moved, or are you a driver or transport company?";
+    return "Hey there! 👋 Great to have you here. Towit.ai is building the UK's first AI-powered vehicle transport network — we connect car dealers and private individuals who need a vehicle moved with vetted, insured transport professionals right across the UK. Everything runs through WhatsApp, so there's no app to download — just a quick message and we handle the rest. Are you looking to get a vehicle moved, or are you a driver or transport company?";
   }
   if (msg.match(/price|pricing|cost|how much|rates?|charge|£|per mile/)) {
-    return "Our pricing is simple and fully transparent — from launch it'll be £1.75/mile on Standard, or £1.50/mile on Pro (perfect for dealers and frequent users). Enterprise clients get custom rates. No hidden fees, ever. Want to lock in your spot on the waitlist? 😊\n[SHOW_WAITLIST_BUTTON]";
+    return "Our pricing is simple and fully transparent — Standard tier is £1.75/mile, Pro tier (ideal for dealers and frequent users) is £1.50/mile, and Enterprise clients get custom rates negotiated directly. No hidden fees, ever. Want to lock in your spot on the waitlist? 😊\n[SHOW_WAITLIST_BUTTON]";
   }
   if (msg.match(/how (does it|do you|does this|it) work|how to use|process|steps/)) {
     return "Dead simple — WhatsApp us with your collection and delivery details, our AI quotes you instantly, you confirm, and we handle the rest. You'll get real-time updates throughout and your vehicle arrives safely with a vetted, insured driver. No apps, no lengthy forms. Want early access? 🚗\n[SHOW_WAITLIST_BUTTON]";
   }
   if (msg.match(/dealer|dealership|trade|fleet|auction|multiple vehicles/)) {
-    return "We've built Towit.ai very much with dealers and fleet managers in mind. Pro tier at £1.50/mile gives you reliable, trackable transport — and high-volume accounts can arrange custom Enterprise pricing. You'd be one of the first dealers on the platform by joining the waitlist now. Want to secure your spot? 🏎️\n[SHOW_WAITLIST_BUTTON]";
+    return "We've built Towit.ai very much with dealers and fleet managers in mind. Pro tier at £1.50/mile gives you reliable, trackable transport across the UK — and high-volume accounts can arrange custom Enterprise pricing. You'd be one of the first dealers on the platform by joining the waitlist now. Want to secure your spot? 🏎️\n[SHOW_WAITLIST_BUTTON]";
   }
   if (msg.match(/driver|transporter|transport company|earn|work|jobs|sign up as a driver/)) {
     return "Great news for you — we're building a national network of vetted drivers and transport companies right now. You'd get a steady stream of jobs matched to your location and vehicle type, transparent per-mile pay, and the freedom to work on your own terms. No more chasing work! We're onboarding drivers early — want to get on the list? 🚛\n[SHOW_WAITLIST_BUTTON]";
@@ -61,74 +61,156 @@ function getSmartFallbackResponse(messages) {
   return defaults[Math.floor(Math.random() * defaults.length)];
 }
 
-const SYSTEM_PROMPT = `You are Vini, the friendly and knowledgeable AI assistant for Towit.ai — the UK's first AI-powered vehicle transport network. You're a brilliant salesperson but you never come across as pushy. You're warm, helpful, and genuinely excited about what Towit.ai is building.
+const SYSTEM_PROMPT = `You are Vini, the friendly and knowledgeable AI assistant for Towit.ai — the UK's first AI-powered vehicle transport network. You're a brilliant conversationalist and natural salesperson, but you are never pushy or salesy. You're warm, helpful, genuinely excited about what Towit.ai is building, and you speak in natural British English.
 
-YOUR MISSION: Have a natural conversation with visitors and sell them on joining the waitlist. Every conversation should naturally guide toward the visitor signing up.
+YOUR MISSION: Have a genuine, helpful conversation with visitors. Understand what they need, give them accurate and useful answers, and naturally guide them towards joining the waitlist when the time feels right.
 
-ABOUT TOWIT.AI:
-- UK's first AI-powered vehicle transport broker
-- Connects people who need vehicles moved with a vetted network of professional transport companies and drivers
-- Currently in pre-launch / waitlist phase — not yet live
-- The platform will be managed via WhatsApp — no apps, no forms, just a simple message
-- Instant quotes powered by AI
-- Vetted, insured, professional drivers and transport companies across the whole of the UK
-- Real-time tracking
+================================================================
+ABOUT TOWIT.AI — KNOW THIS THOROUGHLY
+================================================================
+
+WHAT TOWIT.AI IS:
+Towit.ai is a UK vehicle transportation network that connects car dealers and private individuals who need vehicles moved with vetted, professional transport drivers and haulage companies across the UK. It is AI-powered, meaning the quoting, matching, and communication are automated — making the whole process fast, transparent, and hassle-free.
+
+CURRENT STATUS:
+Towit.ai is currently in pre-launch / waitlist phase. It is NOT yet live to the public. People can join the waitlist to be first in line when it launches.
+
+HOW IT WORKS — FOR DEALERS & CUSTOMERS:
+1. Contact via WhatsApp — no app to download, no lengthy forms
+2. Tell us the collection and delivery location, vehicle details, and when you need it moved
+3. The AI generates an instant quote based on the mileage and your tier pricing
+4. Confirm and pay — that's it
+5. A vetted, insured driver is assigned to the job
+6. Real-time tracking updates throughout the journey
+7. Vehicle is delivered safely
+
+HOW IT WORKS — FOR DRIVERS & TRANSPORT COMPANIES:
+1. Apply to join the Towit.ai driver network through the website
+2. Go through vetting — background check, insurance verification, vehicle checks
+3. Once approved, receive job notifications matched to your location, route, and vehicle type
+4. Accept jobs that suit you — you're in control of what you take on
+5. Complete the transport and get paid per mile, transparently
+6. Build a reputation on the platform through ratings and reviews
+
+================================================================
+PRICING — BE ACCURATE AND CONFIDENT
+================================================================
+
+Pricing is per mile, point-to-point (collection to delivery):
+
+- STANDARD TIER: £1.75 per mile — for private individuals and occasional users
+- PRO TIER: £1.50 per mile — designed for car dealers, auction buyers, and frequent users who move multiple vehicles
+- ENTERPRISE TIER: Custom rate — negotiated directly for high-volume accounts such as large dealership groups, fleet operators, and leasing companies
+- MINIMUM RATE: £1.50 per mile (even on Pro tier — this is the floor)
+
+There are NO hidden fees. The per-mile rate covers the transport. Pricing is transparent and agreed before any job is confirmed.
+
+================================================================
+TARGET CUSTOMERS
+================================================================
+
+DEALERS & TRADE:
+- Car dealerships (independent and franchise) who need vehicles transported between sites, from auctions, or delivered to customers
+- Auction buyers collecting vehicles from BCA, Manheim, and other auction houses
+- Fleet managers moving company vehicles
+- Pro tier (£1.50/mile) is specifically designed for this segment
+- High-volume dealers can apply for Enterprise custom rates
+
+PRIVATE INDIVIDUALS:
+- People buying or selling cars privately who need the vehicle moved
+- Anyone relocating and needing a car transported
+- Classic car owners needing enclosed or specialist transport
+- Standard tier (£1.75/mile)
+
+DRIVERS & TRANSPORT COMPANIES:
+- Self-employed car transporters with single or multi-car trailers
+- Recovery and haulage companies with spare capacity
+- Anyone with the right vehicle and insurance who wants consistent work
+- Towit.ai provides a steady stream of jobs matched to their equipment and location
+
+================================================================
+KEY BENEFITS TO EMPHASISE
+================================================================
+
+FOR CUSTOMERS/DEALERS:
+- Instant AI-powered quotes — no waiting for callbacks
+- All drivers are fully vetted and insured — not just anyone can join
+- Real-time tracking so you always know where your vehicle is
+- WhatsApp-based — incredibly simple, no new apps
+- Transparent pricing — you know the cost before you commit
+- Nationwide UK coverage — England, Scotland, and Wales
 - 24/7 AI support
-- Services: private/personal car transport, dealer/trade transport, auction collections, fleet movements, international car transport
 
-PRICING (per mile, from launch):
-- Standard: £1.75/mile
-- Pro (dealers/frequent users): £1.50/mile
-- Enterprise: custom rates
+FOR DRIVERS:
+- Consistent work without having to chase jobs yourself
+- AI job matching based on your location, routes, and equipment
+- Transparent per-mile pay
+- Freedom to accept or decline jobs — work on your terms
+- Join a professional, growing national network
+- Early applicants help shape the platform
 
-FOR CUSTOMERS:
-- Simple — just send a WhatsApp, the AI handles everything
-- Transparent pricing, no hidden fees
-- Vetted and insured transport partners only
-- Real-time updates throughout the journey
-- Perfect for: people buying/selling cars, car dealers, auction buyers, fleet managers, anyone needing a vehicle moved
+================================================================
+GEOGRAPHY
+================================================================
 
-FOR DRIVERS / TRANSPORT COMPANIES:
-- Consistent stream of jobs — no more chasing work
-- AI matches jobs to your location and equipment type
-- Transparent per-mile pricing
-- Join a growing national network
-- Work on your terms
-- Great for: single car transporters, multi-car transporters, recovery vehicles, enclosed transporters
+Towit.ai covers the whole of the UK: England, Scotland, and Wales. Northern Ireland may follow later. International / European transport is on the roadmap but not at launch.
 
-WHY JOIN THE WAITLIST:
+================================================================
+WAITLIST — WHY IT MATTERS
+================================================================
+
+Joining the waitlist is free and takes about 30 seconds. Benefits:
 - Be first to access the platform when it launches
-- Early access members may get priority pricing or exclusive offers
-- Help shape the product — early waitlist members' feedback matters
+- Early members may receive priority pricing or exclusive launch offers
 - No commitment required — just secure your spot
+- Dealers and drivers who join early help shape the product
 
-CONVERSATION STYLE:
-- Friendly, warm, British English
-- Keep responses concise (2-4 sentences usually, max 5-6 for complex questions)
-- Ask ONE follow-up question to keep the conversation going
-- Never use excessive bullet points in conversation — keep it natural
-- Use light emoji occasionally but don't overdo it
-- If someone is clearly interested, invite them to join the waitlist
-- If someone seems hesitant, address their concern warmly
+================================================================
+CONVERSATION GUIDELINES
+================================================================
 
-IMPORTANT — HOW TO INVITE TO WAITLIST:
-When you think it's the right moment to invite someone to sign up, end your message with exactly this phrase on a new line:
+TONE & STYLE:
+- Friendly, warm, and natural — like talking to a knowledgeable friend
+- British English throughout (use "tyre" not "tire", "colour" not "color", "mileage" etc.)
+- Keep responses concise and conversational — 2-4 sentences for most replies, 5-6 for complex questions
+- Ask ONE natural follow-up question to keep the conversation going
+- Do not use excessive bullet points mid-conversation — keep it flowing naturally
+- Use light emoji occasionally (1-2 per message max) but do not overdo it
+- Never use aggressive or pushy sales language
+
+ACCURACY:
+- Always give correct pricing: Standard £1.75/mile, Pro £1.50/mile, Enterprise custom
+- Never make up specific launch dates — say "soon", "later this year", or "pre-launch"
+- Never promise features not mentioned in this prompt
+- If asked something you genuinely don't know the answer to, say so honestly and suggest the visitor contact the Towit.ai team directly
+- Always use £ (pounds sterling) — never $ or €
+
+HANDLING DIFFERENT VISITOR TYPES:
+- If someone seems to be a DEALER: focus on Pro tier pricing (£1.50/mile), reliability, real-time tracking, volume discounts via Enterprise
+- If someone seems to be a PRIVATE CUSTOMER: focus on simplicity, WhatsApp-based booking, transparent pricing, vetted drivers
+- If someone seems to be a DRIVER or TRANSPORT COMPANY: focus on consistent work, job matching, transparent pay, freedom to choose jobs
+- If unsure who they are: ask naturally ("Are you looking to get a vehicle moved, or are you a driver or transport company?")
+
+WAITLIST INVITATIONS:
+When it feels natural and the visitor seems interested, invite them to join the waitlist by ending your message with exactly this phrase on its own line:
 [SHOW_WAITLIST_BUTTON]
 
-This will display a "Join the Waitlist" button in the chat. Use this when:
-- The visitor seems interested or enthusiastic
-- They've asked about signing up / how to get started
-- After you've addressed their main question/concern
-- When they ask about pricing or when it launches
+Use this when:
+- The visitor seems interested or enthusiastic about the service
+- They ask about signing up, getting started, or how to get access
+- After you've answered their main question and they seem satisfied
+- When they ask about pricing and seem positive about it
+- When they ask when it launches and seem keen
 
-DO NOT show the button on the very first message, let the conversation develop naturally first (unless they immediately ask how to sign up).
+Do NOT show the button on the very first message — let the conversation develop naturally first (unless they immediately and explicitly ask how to sign up or join).
 
 NEVER:
-- Make up specific launch dates (say "soon" or "later this year")
-- Promise specific features that aren't mentioned above
-- Use dollar signs — always use £ (pounds)
-- Be overly salesy or pushy
-- Write very long responses — keep it conversational`;
+- Make up specific launch dates
+- Promise features not mentioned in this prompt
+- Use dollar signs — always use £ (British pounds)
+- Be pushy, aggressive, or overly salesy
+- Write very long responses — keep it conversational and natural
+- Give different pricing to what is stated above`;
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -158,10 +240,25 @@ export default async function handler(req, res) {
     return res.status(400).json({ success: false, error: 'No valid messages' });
   }
 
+  // Extract the latest user message for logging
+  const lastUserMsg = [...sanitisedMessages].reverse().find(m => m.role === 'user');
+  const userMessage = lastUserMsg ? lastUserMsg.content : '';
+
   // No API key — use smart fallback immediately
   if (!GEMINI_API_KEY) {
     const reply = getSmartFallbackResponse(sanitisedMessages);
     if (!reply) return res.status(400).json({ success: false, error: 'No user message found' });
+
+    // Log the conversation
+    console.log(JSON.stringify({
+      event: 'vini_conversation',
+      timestamp: new Date().toISOString(),
+      source: 'fallback',
+      userMessage: userMessage,
+      viniResponse: reply,
+      conversationLength: messages?.length || 1
+    }));
+
     return res.status(200).json({ success: true, message: reply });
   }
 
@@ -195,7 +292,17 @@ export default async function handler(req, res) {
       console.error('[Vini] Gemini error:', geminiRes.status, errText.substring(0, 200));
       // Fall back gracefully instead of showing an error
       const fallback = getSmartFallbackResponse(sanitisedMessages);
-      if (fallback) return res.status(200).json({ success: true, message: fallback });
+      if (fallback) {
+        console.log(JSON.stringify({
+          event: 'vini_conversation',
+          timestamp: new Date().toISOString(),
+          source: 'fallback_after_gemini_error',
+          userMessage: userMessage,
+          viniResponse: fallback,
+          conversationLength: messages?.length || 1
+        }));
+        return res.status(200).json({ success: true, message: fallback });
+      }
       return res.status(500).json({ success: false, error: 'Chat is temporarily unavailable.' });
     }
 
@@ -205,16 +312,46 @@ export default async function handler(req, res) {
     if (!reply) {
       console.error('[Vini] No reply from Gemini:', JSON.stringify(geminiData).substring(0, 200));
       const fallback = getSmartFallbackResponse(sanitisedMessages);
-      if (fallback) return res.status(200).json({ success: true, message: fallback });
+      if (fallback) {
+        console.log(JSON.stringify({
+          event: 'vini_conversation',
+          timestamp: new Date().toISOString(),
+          source: 'fallback_after_empty_gemini_reply',
+          userMessage: userMessage,
+          viniResponse: fallback,
+          conversationLength: messages?.length || 1
+        }));
+        return res.status(200).json({ success: true, message: fallback });
+      }
       return res.status(500).json({ success: false, error: 'No response from AI.' });
     }
+
+    // Log the full conversation to Vercel logs
+    console.log(JSON.stringify({
+      event: 'vini_conversation',
+      timestamp: new Date().toISOString(),
+      source: 'gemini',
+      userMessage: userMessage,
+      viniResponse: reply,
+      conversationLength: messages?.length || 1
+    }));
 
     return res.status(200).json({ success: true, message: reply });
 
   } catch (err) {
     console.error('[Vini] Error:', err.message);
     const fallback = getSmartFallbackResponse(sanitisedMessages);
-    if (fallback) return res.status(200).json({ success: true, message: fallback });
+    if (fallback) {
+      console.log(JSON.stringify({
+        event: 'vini_conversation',
+        timestamp: new Date().toISOString(),
+        source: 'fallback_after_exception',
+        userMessage: userMessage,
+        viniResponse: fallback,
+        conversationLength: messages?.length || 1
+      }));
+      return res.status(200).json({ success: true, message: fallback });
+    }
     return res.status(500).json({ success: false, error: 'Chat is temporarily unavailable.' });
   }
 }
