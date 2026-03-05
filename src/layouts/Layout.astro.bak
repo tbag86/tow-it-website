@@ -212,8 +212,8 @@ const canonicalURL = canonical || Astro.url.href;
 
           <!-- Phone -->
           <div style="margin-bottom:14px;">
-            <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">WhatsApp / Mobile Number <span style="color:#00C2FF;">*</span></label>
-            <input type="tel" name="phone" id="wl-phone" placeholder="+44 7700 000000" required style="width:100%;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;color:#ffffff;font-size:0.9rem;padding:10px 14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2FF'" onblur="this.style.borderColor='#1A2540'" />
+            <label style="display:block;color:#8B96A8;font-size:0.8rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">WhatsApp / Mobile Number <span style="color:#4A5568;">(optional)</span></label>
+            <input type="tel" name="phone" id="wl-phone" placeholder="+44 7700 000000" style="width:100%;background:#0E1421;border:1.5px solid #1A2540;border-radius:10px;color:#ffffff;font-size:0.9rem;padding:10px 14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2FF'" onblur="this.style.borderColor='#1A2540'" />
           </div>
 
           <!-- Business Name -->
@@ -464,13 +464,6 @@ const canonicalURL = canonical || Astro.url.href;
         document.getElementById('wl-email').focus();
         return;
       }
-      const phone = document.getElementById('wl-phone').value.trim();
-      if (!phone) {
-        errorEl.textContent = 'Please enter your mobile number.';
-        errorEl.style.display = 'block';
-        document.getElementById('wl-phone').focus();
-        return;
-      }
       if (!roleInput) {
         errorEl.textContent = 'Please select whether you are a customer or a driver.';
         errorEl.style.display = 'block';
@@ -563,7 +556,7 @@ const canonicalURL = canonical || Astro.url.href;
       <div class="chat-msg-vini" style="display:flex;gap:10px;align-items:flex-start;">
         <div style="width:30px;height:30px;background:linear-gradient(135deg,#00C2FF,#0099CC);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px;">V</div>
         <div style="max-width:82%;background:#141C2E;border:1px solid #1A2540;border-radius:16px 16px 16px 4px;padding:12px 14px;">
-          <p style="color:#ffffff;font-size:0.875rem;line-height:1.6;margin:0;">👋 Hi there! Got a question about Towit.ai? I'm Vini — ask me anything about pricing, how it works, or joining as a dealer or driver!</p>
+          <p style="color:#ffffff;font-size:0.875rem;line-height:1.6;margin:0;">Hey! 👋 I'm Vini, your Towit.ai assistant. We're building the UK's first AI-powered vehicle transport network — and it's going to be something special. What brings you here today?</p>
         </div>
       </div>
     </div>
@@ -751,16 +744,6 @@ const canonicalURL = canonical || Astro.url.href;
       chatSending = false;
       document.getElementById('chat-send-btn').style.opacity = '1';
       input.focus();
-    }
-
-    // Auto-open the chat widget after 5 seconds (once per session)
-    if (!sessionStorage.getItem('vini_auto_opened')) {
-      setTimeout(function() {
-        if (!chatOpen) {
-          toggleChat();
-          sessionStorage.setItem('vini_auto_opened', '1');
-        }
-      }, 5000);
     }
   </script>
 
