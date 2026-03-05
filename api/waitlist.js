@@ -19,6 +19,7 @@ export default async function handler(req, res) {
     name,
     email,
     phone,
+    business_name,
     role,
     service_type,
     vehicle_type,
@@ -67,6 +68,10 @@ export default async function handler(req, res) {
           <td style="padding:12px 16px;border:1px solid #e5e5e5;color:#222;">${phone || '<em style="color:#999;">Not provided</em>'}</td>
         </tr>
         <tr>
+          <td style="padding:12px 16px;border:1px solid #e5e5e5;font-weight:bold;color:#444;">Business Name</td>
+          <td style="padding:12px 16px;border:1px solid #e5e5e5;color:#222;">${business_name || '<em style="color:#999;">Not provided</em>'}</td>
+        </tr>
+        <tr style="background:#f8f8f8;">
           <td style="padding:12px 16px;border:1px solid #e5e5e5;font-weight:bold;color:#444;">Role</td>
           <td style="padding:12px 16px;border:1px solid #e5e5e5;color:#222;"><strong>${roleLabel}</strong></td>
         </tr>
@@ -108,7 +113,7 @@ export default async function handler(req, res) {
   if (!apiKey) {
     // No email service configured — log and acknowledge gracefully
     console.log('[Towit Waitlist] Submission received (RESEND_API_KEY not set):', {
-      name, email, phone, role, service_type, vehicle_type, base_location, heard_from, notes
+      name, email, phone, business_name, role, service_type, vehicle_type, base_location, heard_from, notes
     });
     return res.status(200).json({ success: true });
   }
