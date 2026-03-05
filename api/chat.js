@@ -1,9 +1,65 @@
 // Vini — Towit.ai AI Chat Assistant
-// Calls Google Gemini directly from Vercel (no intermediate server needed)
+// Uses Google Gemini when GEMINI_API_KEY env var is set; smart keyword fallback otherwise.
+// NOTE: Never hardcode API keys — set GEMINI_API_KEY in Vercel environment variables.
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyAgAVRnD_oOV9P3Tu81Fb7tzBWGB3MJnFQ';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 const GEMINI_MODEL = 'gemini-2.5-flash';
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+
+// Smart keyword-based fallback — covers all common questions without needing an API key
+function getSmartFallbackResponse(messages) {
+  const lastUserMsg = [...messages].reverse().find(m => m.role === 'user');
+  if (!lastUserMsg) return null;
+
+  const msg = lastUserMsg.content.toLowerCase().trim();
+  const msgCount = messages.filter(m => m.role === 'user').length;
+
+  if (msgCount === 1 && msg.match(/(^(hi|hello|hey|yo|sup|hiya|howdy))|(just seen|instagram|seen this|what (do you do|is this|is towit|are you)|tell me more|whats this|what's this)/)) {
+    return "Hey there! 👋 Great to have you here. Towit.ai is building the UK's first AI-powered vehicle transport network — we connect people who need a vehicle moved with vetted, insured transport professionals right across the UK. Everything runs through WhatsApp, so there's no app to download — just a quick message and we handle the rest. Are you looking to get a vehicle moved, or are you a driver or transport company?";
+  }
+  if (msg.match(/price|pricing|cost|how much|rates?|charge|£|per mile/)) {
+    return "Our pricing is simple and fully transparent — from launch it'll be £1.75/mile on Standard, or £1.50/mile on Pro (perfect for dealers and frequent users). Enterprise clients get custom rates. No hidden fees, ever. Want to lock in your spot on the waitlist? 😊\n[SHOW_WAITLIST_BUTTON]";
+  }
+  if (msg.match(/how (does it|do you|does this|it) work|how to use|process|steps/)) {
+    return "Dead simple — WhatsApp us with your collection and delivery details, our AI quotes you instantly, you confirm, and we handle the rest. You'll get real-time updates throughout and your vehicle arrives safely with a vetted, insured driver. No apps, no lengthy forms. Want early access? 🚗\n[SHOW_WAITLIST_BUTTON]";
+  }
+  if (msg.match(/dealer|dealership|trade|fleet|auction|multiple vehicles/)) {
+    return "We've built Towit.ai very much with dealers and fleet managers in mind. Pro tier at £1.50/mile gives you reliable, trackable transport — and high-volume accounts can arrange custom Enterprise pricing. You'd be one of the first dealers on the platform by joining the waitlist now. Want to secure your spot? 🏎️\n[SHOW_WAITLIST_BUTTON]";
+  }
+  if (msg.match(/driver|transporter|transport company|earn|work|jobs|sign up as a driver/)) {
+    return "Great news for you — we're building a national network of vetted drivers and transport companies right now. You'd get a steady stream of jobs matched to your location and vehicle type, transparent per-mile pay, and the freedom to work on your own terms. No more chasing work! We're onboarding drivers early — want to get on the list? 🚛\n[SHOW_WAITLIST_BUTTON]";
+  }
+  if (msg.match(/when|launch|available|live|release|ready|start/)) {
+    return "We're in the final stages of pre-launch — coming soon! People who sign up to the waitlist now will be the first to get access, and may get priority pricing when we go live. Want to make sure you're first in line? 🎉\n[SHOW_WAITLIST_BUTTON]";
+  }
+  if (msg.match(/uk|united kingdom|england|scotland|wales|coverage|where|location|nationwide/)) {
+    return "We cover the whole of the UK — England, Scotland, and Wales. Wherever you need a vehicle collected from or delivered to, we've got drivers in the network to handle it. Got a specific move in mind? 🇬🇧";
+  }
+  if (msg.match(/international|europe|abroad|import|export/)) {
+    return "International vehicle transport is on our roadmap — we're launching UK-wide first, with Europe to follow. Get on the waitlist and we'll notify you as soon as it's live. 🌍\n[SHOW_WAITLIST_BUTTON]";
+  }
+  if (msg.match(/whatsapp|app|download|phone/)) {
+    return "No app needed — that's the beauty of it! Everything runs through WhatsApp, which you've already got on your phone. Send a message, get an instant quote, confirm, done. Simple as that 📱";
+  }
+  if (msg.match(/safe|insur|trust|vett|reliable|damage|claim/)) {
+    return "Every driver and transport company on our network is fully vetted and insured — we don't let just anyone in. You'll have real-time tracking throughout the journey and 24/7 support if you need anything. Your vehicle is in safe hands. 🛡️";
+  }
+  if (msg.match(/waitlist|sign up|join|register|get access|interested|sounds good|how do i/)) {
+    return "Brilliant — you won't regret it! Hit the button below to join the waitlist. Takes about 30 seconds, no commitment required, and you'll be among the first to get access when we launch. 🙌\n[SHOW_WAITLIST_BUTTON]";
+  }
+  if (msg.match(/great|brilliant|amazing|awesome|sounds (good|great|nice)|perfect|love it|wow|cool/)) {
+    return "Really glad to hear it! 😊 We're genuinely excited about what we're building. Want to lock in your spot on the waitlist while you're here?\n[SHOW_WAITLIST_BUTTON]";
+  }
+  if (msg.match(/no thanks|not interested|maybe later|not now/)) {
+    return "No worries at all! If you ever need a vehicle moved in the future, you know where to find us 👋";
+  }
+  const defaults = [
+    "Good question! In a nutshell: Towit.ai makes vehicle transport in the UK dead simple — instant quotes, vetted drivers, all via WhatsApp. We're pre-launch right now. Want early access? 🚗\n[SHOW_WAITLIST_BUTTON]",
+    "Happy to help! We're still pre-launch, so the best step is getting on the waitlist — early members get first access and may get priority pricing. Fancy securing your spot? 😊\n[SHOW_WAITLIST_BUTTON]",
+    "Great to hear from you! The best step right now is joining our waitlist — you'll be first to know when we're live and could get some brilliant early-access perks. Interested? 👇\n[SHOW_WAITLIST_BUTTON]"
+  ];
+  return defaults[Math.floor(Math.random() * defaults.length)];
+}
 
 const SYSTEM_PROMPT = `You are Vini, the friendly and knowledgeable AI assistant for Towit.ai — the UK's first AI-powered vehicle transport network. You're a brilliant salesperson but you never come across as pushy. You're warm, helpful, and genuinely excited about what Towit.ai is building.
 
@@ -102,6 +158,13 @@ export default async function handler(req, res) {
     return res.status(400).json({ success: false, error: 'No valid messages' });
   }
 
+  // No API key — use smart fallback immediately
+  if (!GEMINI_API_KEY) {
+    const reply = getSmartFallbackResponse(sanitisedMessages);
+    if (!reply) return res.status(400).json({ success: false, error: 'No user message found' });
+    return res.status(200).json({ success: true, message: reply });
+  }
+
   try {
     // Convert to Gemini format (roles: "user" | "model")
     const geminiContents = sanitisedMessages.map(m => ({
@@ -130,7 +193,10 @@ export default async function handler(req, res) {
     if (!geminiRes.ok) {
       const errText = await geminiRes.text();
       console.error('[Vini] Gemini error:', geminiRes.status, errText.substring(0, 200));
-      return res.status(500).json({ success: false, error: 'Chat is temporarily unavailable. Please try again.' });
+      // Fall back gracefully instead of showing an error
+      const fallback = getSmartFallbackResponse(sanitisedMessages);
+      if (fallback) return res.status(200).json({ success: true, message: fallback });
+      return res.status(500).json({ success: false, error: 'Chat is temporarily unavailable.' });
     }
 
     const geminiData = await geminiRes.json();
@@ -138,6 +204,8 @@ export default async function handler(req, res) {
 
     if (!reply) {
       console.error('[Vini] No reply from Gemini:', JSON.stringify(geminiData).substring(0, 200));
+      const fallback = getSmartFallbackResponse(sanitisedMessages);
+      if (fallback) return res.status(200).json({ success: true, message: fallback });
       return res.status(500).json({ success: false, error: 'No response from AI.' });
     }
 
@@ -145,9 +213,8 @@ export default async function handler(req, res) {
 
   } catch (err) {
     console.error('[Vini] Error:', err.message);
-    return res.status(500).json({
-      success: false,
-      error: 'Chat is temporarily unavailable. Please try again in a moment.'
-    });
+    const fallback = getSmartFallbackResponse(sanitisedMessages);
+    if (fallback) return res.status(200).json({ success: true, message: fallback });
+    return res.status(500).json({ success: false, error: 'Chat is temporarily unavailable.' });
   }
 }
