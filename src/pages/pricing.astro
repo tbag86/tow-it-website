@@ -62,6 +62,53 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- DEALER RATE STRUCTURE -->
+  <section style="padding:80px 24px;max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:56px;">
+      <p style="color:#00C2FF;font-size:0.875rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Dealer Pricing</p>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#ffffff;margin-bottom:12px;">Rate structure by distance</h2>
+      <p style="color:#8B96A8;max-width:540px;margin:0 auto;line-height:1.7;">All dealer jobs are priced by distance band. All prices are exclusive of VAT. The quote you receive is always fixed — no fuel surcharges, no surprises.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:32px;">
+
+      <!-- Short Journey -->
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:36px;text-align:center;">
+        <div style="color:#8B96A8;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Short Journey</div>
+        <div style="color:#ffffff;font-size:2.75rem;font-weight:900;margin-bottom:4px;">£120</div>
+        <div style="color:#8B96A8;font-size:0.9rem;margin-bottom:6px;">flat rate + VAT</div>
+        <div style="background:#0E1421;border-radius:8px;padding:10px 16px;margin:20px 0;display:inline-block;">
+          <span style="color:#00C2FF;font-weight:700;">Up to 50 miles</span>
+        </div>
+        <p style="color:#8B96A8;font-size:0.875rem;line-height:1.7;">One flat price regardless of exact distance. Ideal for same-city transfers, local auction runs, and part-exchange collections.</p>
+      </div>
+
+      <!-- Standard -->
+      <div style="background:#141C2E;border:2px solid #00C2FF;border-radius:16px;padding:36px;text-align:center;position:relative;">
+        <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#00C2FF;color:#080C14;font-size:0.75rem;font-weight:700;padding:4px 16px;border-radius:9999px;white-space:nowrap;">MOST COMMON</div>
+        <div style="color:#00C2FF;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Standard</div>
+        <div style="color:#ffffff;font-size:2.75rem;font-weight:900;margin-bottom:4px;">£120<span style="font-size:1.25rem;font-weight:600;color:#8B96A8;"> base</span></div>
+        <div style="color:#8B96A8;font-size:0.9rem;margin-bottom:6px;">+ £2.35/mi over 50 + VAT</div>
+        <div style="background:#0E1421;border-radius:8px;padding:10px 16px;margin:20px 0;display:inline-block;">
+          <span style="color:#00C2FF;font-weight:700;">51 – 100 miles</span>
+        </div>
+        <p style="color:#8B96A8;font-size:0.875rem;line-height:1.7;">Example: 76-mile job = £120 + (26 &times; £2.35) = <strong style="color:#ffffff;">£181.10 + VAT</strong></p>
+      </div>
+
+      <!-- Long Distance -->
+      <div style="background:#141C2E;border:1px solid #1A2540;border-radius:16px;padding:36px;text-align:center;">
+        <div style="color:#00E88F;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Long Distance</div>
+        <div style="color:#ffffff;font-size:2.75rem;font-weight:900;margin-bottom:4px;">£2.05</div>
+        <div style="color:#8B96A8;font-size:0.9rem;margin-bottom:6px;">per mile + VAT</div>
+        <div style="background:#0E1421;border-radius:8px;padding:10px 16px;margin:20px 0;display:inline-block;">
+          <span style="color:#00E88F;font-weight:700;">100+ miles</span>
+        </div>
+        <p style="color:#8B96A8;font-size:0.875rem;line-height:1.7;">No base charge — just a simple per-mile rate. Example: 250-mile run = <strong style="color:#ffffff;">£512.50 + VAT</strong></p>
+      </div>
+
+    </div>
+    <p style="text-align:center;color:#4A5568;font-size:0.8rem;">All prices are for standard passenger cars. Large SUVs, prestige vehicles, and non-runners may carry an additional charge. Custom rates available for national dealer groups — speak to your account manager.</p>
+  </section>
+
   <!-- NO HIDDEN FEES -->
   <section style="padding:80px 24px;max-width:1280px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:56px;">
